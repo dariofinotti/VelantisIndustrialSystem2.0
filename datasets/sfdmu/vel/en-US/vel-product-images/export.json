@@ -1,0 +1,13 @@
+{
+  "apiVersion": "67.0",
+  "excludeIdsFromCSVFiles": "true",
+  "objects": [
+    {
+      "query": "SELECT DisplayUrl, Name, StockKeepingUnit FROM Product2 WHERE StockKeepingUnit LIKE 'VEL-%' ORDER BY StockKeepingUnit ASC",
+      "operation": "Update",
+      "externalId": "StockKeepingUnit",
+      "restful": true
+    }
+  ],
+  "orgs": []
+}

@@ -1,0 +1,55 @@
+$$Product2.StockKeepingUnit$ProductSellingModel.Name$ProductSellingModel.SellingModelType,IsDefault,Product2.StockKeepingUnit,ProductSellingModel.Name,ProductSellingModel.SellingModelType,ProrationPolicy.Name
+VEL-PACK-G1-BDL;One-Time;OneTime,true,VEL-PACK-G1-BDL,One-Time,OneTime,
+VEL-PACK-G1-BASE;One-Time;OneTime,true,VEL-PACK-G1-BASE,One-Time,OneTime,
+VEL-PACK-G1-TT;One-Time;OneTime,true,VEL-PACK-G1-TT,One-Time,OneTime,
+VEL-PACK-G1-TT-PRO;One-Time;OneTime,true,VEL-PACK-G1-TT-PRO,One-Time,OneTime,
+VEL-PACK-FILM;Evergreen Monthly;Evergreen,true,VEL-PACK-FILM,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-PACK-FILM;One-Time;OneTime,false,VEL-PACK-FILM,One-Time,OneTime,
+VEL-PACK-FILM-CF;Evergreen Monthly;Evergreen,true,VEL-PACK-FILM-CF,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-PACK-FILM-CR;Evergreen Monthly;Evergreen,true,VEL-PACK-FILM-CR,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-SRV-INSTALL-PKG;One-Time;OneTime,true,VEL-SRV-INSTALL-PKG,One-Time,OneTime,
+VEL-SRV-MAINT-PKG;Evergreen Monthly;Evergreen,true,VEL-SRV-MAINT-PKG,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-SRV-MAINT-PKG;Term Annual;TermDefined,false,VEL-SRV-MAINT-PKG,Term Annual,TermDefined,Default Proration Policy
+VEL-SRV-MAINT-PKG-PREM;Evergreen Monthly;Evergreen,true,VEL-SRV-MAINT-PKG-PREM,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-SRV-MAINT-PKG-PREM;Term Annual;TermDefined,false,VEL-SRV-MAINT-PKG-PREM,Term Annual,TermDefined,Default Proration Policy
+VEL-SRV-WARRANTY-PKG;Term Annual;TermDefined,true,VEL-SRV-WARRANTY-PKG,Term Annual,TermDefined,Default Proration Policy
+VEL-SW-PACK-MGR;Evergreen Monthly;Evergreen,true,VEL-SW-PACK-MGR,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-SW-PACK-MGR;Term Annual;TermDefined,false,VEL-SW-PACK-MGR,Term Annual,TermDefined,Default Proration Policy
+VEL-LSR-BDL;One-Time;OneTime,true,VEL-LSR-BDL,One-Time,OneTime,
+VEL-LSR-1530;One-Time;OneTime,true,VEL-LSR-1530,One-Time,OneTime,
+VEL-LSR-2040;One-Time;OneTime,true,VEL-LSR-2040,One-Time,OneTime,
+VEL-LSR-2060;One-Time;OneTime,true,VEL-LSR-2060,One-Time,OneTime,
+VEL-LSR-SRC-4KW;One-Time;OneTime,true,VEL-LSR-SRC-4KW,One-Time,OneTime,
+VEL-LSR-SRC-10KW;One-Time;OneTime,true,VEL-LSR-SRC-10KW,One-Time,OneTime,
+VEL-LSR-SRC-15KW;One-Time;OneTime,true,VEL-LSR-SRC-15KW,One-Time,OneTime,
+VEL-LSR-AUTO-CS;One-Time;OneTime,true,VEL-LSR-AUTO-CS,One-Time,OneTime,
+VEL-CUT-GAS;Evergreen Monthly;Evergreen,true,VEL-CUT-GAS,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-SRV-INSTALL-LSR;One-Time;OneTime,true,VEL-SRV-INSTALL-LSR,One-Time,OneTime,
+VEL-SRV-MAINT-LSR;Evergreen Monthly;Evergreen,true,VEL-SRV-MAINT-LSR,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-SRV-WARRANTY-LSR;Term Annual;TermDefined,true,VEL-SRV-WARRANTY-LSR,Term Annual,TermDefined,Default Proration Policy
+VEL-SW-LSR-CAD;Evergreen Monthly;Evergreen,true,VEL-SW-LSR-CAD,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-SOFTWARE-NC;Evergreen Monthly;Evergreen,true,VEL-SOFTWARE-NC,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-LSR-AUTO-LU;One-Time;OneTime,true,VEL-LSR-AUTO-LU,One-Time,OneTime,
+VEL-LSR-AUTO-SORT;One-Time;OneTime,true,VEL-LSR-AUTO-SORT,One-Time,OneTime,
+VEL-CUT-GAS-O2;Evergreen Monthly;Evergreen,true,VEL-CUT-GAS-O2,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-CUT-GAS-AIR;Evergreen Monthly;Evergreen,true,VEL-CUT-GAS-AIR,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-STP-BDL;One-Time;OneTime,true,VEL-STP-BDL,One-Time,OneTime,
+VEL-STP-CTRL;One-Time;OneTime,true,VEL-STP-CTRL,One-Time,OneTime,
+VEL-STP-CTRL-SW;Term Annual;TermDefined,true,VEL-STP-CTRL-SW,Term Annual,TermDefined,Default Proration Policy
+VEL-STP-CTRL-FMM;Term Annual;TermDefined,true,VEL-STP-CTRL-FMM,Term Annual,TermDefined,Default Proration Policy
+VEL-STP-DOOR-H;One-Time;OneTime,true,VEL-STP-DOOR-H,One-Time,OneTime,
+VEL-STP-DOOR-V;One-Time;OneTime,true,VEL-STP-DOOR-V,One-Time,OneTime,
+VEL-STP-OPT-DRAIN;One-Time;OneTime,true,VEL-STP-OPT-DRAIN,One-Time,OneTime,
+VEL-STP-OPT-GMP;One-Time;OneTime,true,VEL-STP-OPT-GMP,One-Time,OneTime,
+VEL-STP-CERT-PVC;One-Time;OneTime,true,VEL-STP-CERT-PVC,One-Time,OneTime,
+VEL-STP-LOAD-CART;One-Time;OneTime,true,VEL-STP-LOAD-CART,One-Time,OneTime,
+VEL-STP-LOAD-TRAY;One-Time;OneTime,true,VEL-STP-LOAD-TRAY,One-Time,OneTime,
+VEL-STP-LOAD-RACK;One-Time;OneTime,true,VEL-STP-LOAD-RACK,One-Time,OneTime,
+VEL-STP-DOC-VAL;One-Time;OneTime,true,VEL-STP-DOC-VAL,One-Time,OneTime,
+VEL-STP-SVC-INST;One-Time;OneTime,true,VEL-STP-SVC-INST,One-Time,OneTime,
+VEL-STP-SRV-MAINT-STD;Evergreen Monthly;Evergreen,true,VEL-STP-SRV-MAINT-STD,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-STP-SRV-MAINT-STD;Term Annual;TermDefined,false,VEL-STP-SRV-MAINT-STD,Term Annual,TermDefined,Default Proration Policy
+VEL-STP-SRV-MAINT-PREM;Evergreen Monthly;Evergreen,true,VEL-STP-SRV-MAINT-PREM,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-STP-SRV-MAINT-PREM;Term Annual;TermDefined,false,VEL-STP-SRV-MAINT-PREM,Term Annual,TermDefined,Default Proration Policy
+VEL-SW-RMP;Evergreen Monthly;Evergreen,true,VEL-SW-RMP,Evergreen Monthly,Evergreen,Default Proration Policy
+VEL-SW-RMP;Term Annual;TermDefined,false,VEL-SW-RMP,Term Annual,TermDefined,Default Proration Policy

@@ -1,0 +1,6 @@
+Code,Description,Name
+VEL_PKG_SPECS,Technical and regulatory specifications for VELPACK G1 packaging machines,Packaging System Specifications
+VEL_LSR_SPECS,Technical configuration specifications for PrecisionBeam+ laser cutting systems,Laser System Specifications
+VEL_STP_SPECS,Chamber dimensions and configuration specifications for VelTherma STP sterilizers,Sterilizer Chamber Specifications
+VEL_STP_DOOR_CFG,Door type and opening dimensions for VelTherma STP sterilizers,Door Configuration
+VEL_STP_PROC_PARAMS,Process parameters and installation configuration for VelTherma STP sterilizers,Process & Installation Parameters

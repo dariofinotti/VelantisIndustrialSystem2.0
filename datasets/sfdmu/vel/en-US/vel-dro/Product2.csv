@@ -1,0 +1,26 @@
+CustomDecompositionScope,DecompositionScope,FulfillmentQtyCalcMethod,IsActive,Name,StockKeepingUnit
+,Bundle,,true,VELPACK G1 Packaging System,VEL-PACK-G1-BDL
+,OrderLineItem,,true,VELPACK Installation Service,VEL-SRV-INSTALL-PKG
+,OrderLineItem,,true,VELPACK Maintenance — Standard,VEL-SRV-MAINT-PKG
+,OrderLineItem,,true,VELPACK Maintenance — Premium,VEL-SRV-MAINT-PKG-PREM
+,OrderLineItem,,true,VelPackMgr Batch Control Software,VEL-SW-PACK-MGR
+,Bundle,,true,PrecisionBeam+ Laser Cutting System,VEL-LSR-BDL
+,OrderLineItem,,true,PrecisionBeam+ Installation Service,VEL-SRV-INSTALL-LSR
+,OrderLineItem,,true,PrecisionBeam+ Maintenance Plan,VEL-SRV-MAINT-LSR
+,OrderLineItem,,true,PrecisionCut CAD/CAM Software,VEL-SW-LSR-CAD
+Ramp_Identifier,Account,AlwaysOne,true,VEL Finance Service,VEL-DRO-BILL
+,Account,AlwaysOne,true,VEL Manufacturing & QC Service,VEL-DRO-MFG
+,Account,AlwaysOne,true,VEL Logistics & Shipping Service,VEL-DRO-LOGIS
+,Account,AlwaysOne,true,VEL Installation & Commissioning,VEL-DRO-INST
+,Account,AlwaysOne,true,VEL Service Activation,VEL-DRO-SVCACT
+,Bundle,,true,VelTherma STP – Saturated Steam Sterilizer,VEL-STP-BDL
+,OrderLineItem,,true,VelControl Pro Process Controller,VEL-STP-CTRL
+,OrderLineItem,,true,VelControl Pro Software License,VEL-STP-CTRL-SW
+,OrderLineItem,,true,FlowMetrics Monitoring Platform,VEL-STP-CTRL-FMM
+,OrderLineItem,,true,Pressure Vessel Compliance Certification,VEL-STP-CERT-PVC
+,OrderLineItem,,true,Installation & Commissioning Service,VEL-STP-SVC-INST
+,OrderLineItem,,true,VelTherma Standard Maintenance Contract,VEL-STP-SRV-MAINT-STD
+,OrderLineItem,,true,VelTherma Premium Maintenance Contract,VEL-STP-SRV-MAINT-PREM
+,Account,AlwaysOne,true,VEL Maintenance Contract Service,VEL-DRO-MAINT
+,OrderLineItem,,true,Extended Warranty (VELPACK G1),VEL-SRV-WARRANTY-PKG
+,OrderLineItem,,true,Extended Warranty (PrecisionBeam+),VEL-SRV-WARRANTY-LSR

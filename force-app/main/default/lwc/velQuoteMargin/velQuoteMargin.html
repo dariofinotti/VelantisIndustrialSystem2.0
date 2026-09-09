@@ -1,0 +1,118 @@
+<template>
+    <!-- Loading state -->
+    <template if:true={isLoading}>
+        <div class="slds-p-around_large slds-align_absolute-center">
+            <lightning-spinner alternative-text="Loading margin data" size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <!-- Error state -->
+    <template if:true={hasError}>
+        <lightning-card title="Margin Analysis">
+            <div class="slds-p-around_medium">
+                <div class="slds-notify slds-notify_alert slds-theme_error" role="alert">
+                    <span class="slds-assistive-text">Error</span>
+                    <p>{error}</p>
+                </div>
+            </div>
+        </lightning-card>
+    </template>
+
+    <!-- Empty state -->
+    <template if:true={isEmpty}>
+        <lightning-card title="Margin Analysis">
+            <div class="slds-p-around_large slds-align_absolute-center">
+                <p class="slds-text-body_regular slds-text-color_weak">No quote lines found for this quote.</p>
+            </div>
+        </lightning-card>
+    </template>
+
+    <!-- Main content -->
+    <template if:true={hasRows}>
+        <lightning-card title="Margin Analysis">
+            <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered vel-margin-table">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col">
+                                <div class="slds-truncate slds-text-title_caps" title="Product">Product</div>
+                            </th>
+                            <th scope="col" class="slds-text-align_right vel-col-narrow">
+                                <div class="slds-truncate slds-text-title_caps" title="Qty">Qty</div>
+                            </th>
+                            <th scope="col" class="slds-text-align_right vel-col-number">
+                                <div class="slds-truncate slds-text-title_caps" title="Net Price">Net Price</div>
+                            </th>
+                            <th scope="col" class="slds-text-align_right vel-col-number">
+                                <div class="slds-truncate slds-text-title_caps" title="Cost">Cost</div>
+                            </th>
+                            <th scope="col" class="slds-text-align_right vel-col-number">
+                                <div class="slds-truncate slds-text-title_caps" title="Margin $">Margin $</div>
+                            </th>
+                            <th scope="col" class="slds-text-align_right vel-col-badge">
+                                <div class="slds-truncate slds-text-title_caps" title="Margin %">Margin %</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={rows} for:item="row">
+                            <tr key={row.lineId} class="slds-hint-parent">
+                                <td>
+                                    <div class="slds-truncate" title={row.productName}>
+                                        <span class="vel-sku slds-text-color_weak">{row.sku}</span>
+                                        <div class="slds-text-body_regular">{row.productName}</div>
+                                    </div>
+                                </td>
+                                <td class="slds-text-align_right">
+                                    <div class="slds-truncate slds-text-body_small" title={row.quantity}>{row.quantity}</div>
+                                </td>
+                                <td class="slds-text-align_right">
+                                    <div class="slds-truncate slds-text-body_small" title={row.formattedNetPrice}>{row.formattedNetPrice}</div>
+                                </td>
+                                <td class="slds-text-align_right">
+                                    <div class="slds-truncate slds-text-body_small" title={row.formattedCost}>{row.formattedCost}</div>
+                                </td>
+                                <td class="slds-text-align_right">
+                                    <div class="slds-truncate slds-text-body_small" title={row.formattedMarginAmt}>{row.formattedMarginAmt}</div>
+                                </td>
+                                <td class="slds-text-align_right">
+                                    <span class={row.badgeClass}>
+                                        <lightning-icon icon-name={row.iconName} size="xx-small"></lightning-icon>
+                                        <span>{row.formattedMarginPct}</span>
+                                    </span>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                    <tfoot>
+                        <tr class="vel-totals-row">
+                            <td colspan="2">
+                                <div class="slds-text-title_caps slds-text-color_weak">Quote Total</div>
+                            </td>
+                            <td class="slds-text-align_right">
+                                <div class="slds-text-heading_small">{totalNetPrice}</div>
+                            </td>
+                            <td class="slds-text-align_right">
+                                <div class="slds-text-heading_small">{totalCost}</div>
+                            </td>
+                            <td class="slds-text-align_right">
+                                <div class="slds-text-heading_small">{totalMarginAmount}</div>
+                            </td>
+                            <td class="slds-text-align_right">
+                                <span class={totalBadgeClass}>
+                                    <lightning-icon icon-name={totalIconName} size="xx-small"></lightning-icon>
+                                    <span>{totalMarginPct}</span>
+                                </span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <template if:true={hasMissingCost}>
+                    <p class="slds-m-top_small slds-text-body_small slds-text-color_weak">
+                        &#42; Products showing N/A have no entry in the cost book.
+                    </p>
+                </template>
+            </div>
+        </lightning-card>
+    </template>
+</template>

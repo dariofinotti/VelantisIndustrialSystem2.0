@@ -1,0 +1,7 @@
+$$AttributeBasedAdjRule.Name$AttributeDefinition.Code$Product.StockKeepingUnit,AttributeBasedAdjRule.Name,AttributeDefinition.Code,BooleanValue,DateTimeValue,DateValue,DoubleValue,IntegerValue,Operator,Product.StockKeepingUnit,StringValue
+VEL-LSR-Power-High-10kW;ATTR-VEL-POWER;VEL-LSR-BDL,VEL-LSR-Power-High-10kW,ATTR-VEL-POWER,,,,,,equals,VEL-LSR-BDL,High (10 kW)
+VEL-LSR-Power-Standard-4kW;ATTR-VEL-POWER;VEL-LSR-BDL,VEL-LSR-Power-Standard-4kW,ATTR-VEL-POWER,,,,,,equals,VEL-LSR-BDL,Standard (4 kW)
+VEL-LSR-Power-Ultra-15kW;ATTR-VEL-POWER;VEL-LSR-BDL,VEL-LSR-Power-Ultra-15kW,ATTR-VEL-POWER,,,,,,equals,VEL-LSR-BDL,Ultra (15 kW)
+VEL-PKG-Config-Integrated;ATTR-VEL-PKG-CFG;VEL-PACK-G1-BDL,VEL-PKG-Config-Integrated,ATTR-VEL-PKG-CFG,,,,,,equals,VEL-PACK-G1-BDL,Integrated
+VEL-PKG-Config-Standard;ATTR-VEL-PKG-CFG;VEL-PACK-G1-BDL,VEL-PKG-Config-Standard,ATTR-VEL-PKG-CFG,,,,,,equals,VEL-PACK-G1-BDL,Standard
+VEL-PKG-Config-StandAlone;ATTR-VEL-PKG-CFG;VEL-PACK-G1-BDL,VEL-PKG-Config-StandAlone,ATTR-VEL-PKG-CFG,,,,,,equals,VEL-PACK-G1-BDL,StandAlone

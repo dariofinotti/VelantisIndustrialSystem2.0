@@ -1,0 +1,70 @@
+{
+  "apiVersion": "67.0",
+  "excludeIdsFromCSVFiles": "true",
+  "objectSets": [
+    {
+      "objects": [
+        {
+          "query": "SELECT Name, Status, PricingTerm, PricingTermUnit, SellingModelType FROM ProductSellingModel WHERE Name IN ('One-Time', 'Evergreen Monthly', 'Term Annual') ORDER BY Name ASC, SellingModelType ASC",
+          "operation": "Readonly",
+          "externalId": "Name;SellingModelType"
+        },
+        {
+          "query": "SELECT StockKeepingUnit FROM Product2 WHERE StockKeepingUnit LIKE 'VEL-%' ORDER BY StockKeepingUnit ASC",
+          "operation": "Readonly",
+          "externalId": "StockKeepingUnit"
+        },
+        {
+          "query": "SELECT Code FROM AttributeDefinition WHERE Code LIKE 'ATTR-VEL-%' ORDER BY Code ASC",
+          "operation": "Readonly",
+          "externalId": "Code"
+        },
+        {
+          "query": "SELECT Name, IsDefault, EffectiveFrom, EffectiveTo FROM CostBook WHERE Name = 'Standard Cost Book'",
+          "operation": "Upsert",
+          "externalId": "Name",
+          "restful": true
+        },
+        {
+          "query": "SELECT Name, IsActive, IsStandard FROM Pricebook2 WHERE IsStandard = true OR Name = 'Standard Price Book'",
+          "operation": "Upsert",
+          "externalId": "Name;IsStandard",
+          "restful": true
+        },
+        {
+          "query": "SELECT AdjustmentMethod, CurrencyIsoCode, Description, EffectiveFrom, EffectiveTo, IsActive, Name, Pricebook2Id, ScheduleType FROM PriceAdjustmentSchedule WHERE Name = 'Standard Attribute Based Adjustment' AND ContractId = NULL ORDER BY Name ASC, CurrencyIsoCode ASC",
+          "operation": "Update",
+          "externalId": "Name;CurrencyIsoCode"
+        },
+        {
+          "query": "SELECT Name FROM AttributeBasedAdjRule WHERE Name LIKE 'VEL-%' ORDER BY Name ASC",
+          "operation": "Upsert",
+          "externalId": "Name"
+        },
+        {
+          "query": "SELECT AttributeBasedAdjRuleId, AttributeDefinitionId, BooleanValue, DateValue, DateTimeValue, DoubleValue, IntegerValue, Operator, ProductId, StringValue FROM AttributeAdjustmentCondition WHERE AttributeBasedAdjRule.Name LIKE 'VEL-%' ORDER BY AttributeBasedAdjRule.Name ASC, AttributeDefinition.Code ASC, Product.StockKeepingUnit ASC",
+          "operation": "Insert",
+          "externalId": "AttributeBasedAdjRule.Name;AttributeDefinition.Code;Product.StockKeepingUnit"
+        },
+        {
+          "query": "SELECT AdjustmentType, AdjustmentValue, AttributeAdjConditionsHash, AttributeBasedAdjRuleId, AttributeCount, CurrencyIsoCode, EffectiveFrom, EffectiveTo, PriceAdjustmentScheduleId, PricingTerm, PricingTermUnit, ProductId, ProductSellingModelId, ScheduleType, SellingModelType FROM AttributeBasedAdjustment WHERE AttributeBasedAdjRule.Name LIKE 'VEL-%' ORDER BY AttributeBasedAdjRule.Name ASC, PriceAdjustmentSchedule.Name ASC, Product.StockKeepingUnit ASC, ProductSellingModel.Name ASC, CurrencyIsoCode DESC",
+          "operation": "Insert",
+          "externalId": "AttributeBasedAdjRule.Name;PriceAdjustmentSchedule.Name;Product.StockKeepingUnit;ProductSellingModel.Name;CurrencyIsoCode"
+        },
+        {
+          "query": "SELECT Name, IsActive, IsDerived, Pricebook2Id, Product2Id, ProductSellingModelId, UnitPrice, CurrencyIsoCode FROM PricebookEntry WHERE Product2.StockKeepingUnit LIKE 'VEL-%' ORDER BY Product2.StockKeepingUnit ASC, Pricebook2.Name ASC, CurrencyIsoCode DESC, Name ASC",
+          "operation": "Insert",
+          "externalId": "Product2.StockKeepingUnit;ProductSellingModel.Name;CurrencyIsoCode",
+          "restful": true
+        },
+        {
+          "query": "SELECT Cost, CostBookId, CostBook.Name, EffectiveFrom, EffectiveTo, ProductId, Product.StockKeepingUnit, Description, CurrencyIsoCode FROM CostBookEntry WHERE Product.StockKeepingUnit LIKE 'VEL-%' ORDER BY CostBook.Name ASC, Product.StockKeepingUnit ASC",
+          "operation": "Insert",
+          "externalId": "CostBook.Name;Product.StockKeepingUnit;CurrencyIsoCode",
+          "restful": true
+        }
+      ]
+    }
+  ],
+  "orgs": []
+}

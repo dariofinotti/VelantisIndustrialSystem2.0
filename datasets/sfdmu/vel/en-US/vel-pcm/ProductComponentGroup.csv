@@ -1,0 +1,19 @@
+Code,Description,MaxBundleComponents,MinBundleComponents,Name,ParentGroup.Code,ParentProduct.StockKeepingUnit,Sequence
+PCG-VEL-PKG-BASE,Required VELPACK G1 base machine chassis,1,1,Base Machine,,VEL-PACK-G1-BDL,10
+PCG-VEL-PKG-TT,Optional Track & Trace module — Standard or Professional variant,1,0,Track & Trace Module,,VEL-PACK-G1-BDL,20
+PCG-VEL-PKG-FILM,Optional pharma packaging film — Alu-PVC Cold-Form or Child-Resistant,1,0,Packaging Film,,VEL-PACK-G1-BDL,30
+PCG-VEL-PKG-SERVICES,Optional add-on services — installation / maintenance / warranty (choose any combination),4,0,Add-on Services,,VEL-PACK-G1-BDL,40
+PCG-VEL-PKG-SW,Optional batch control software subscription,1,0,Batch Control Software,,VEL-PACK-G1-BDL,50
+PCG-VEL-LSR-CONFIG,Machine configuration group — frame size and laser source are selected together via attribute-driven constraints,,,Machine Configuration,,VEL-LSR-BDL,5
+PCG-VEL-LSR-FRAME,Required machine frame — constraint selects one of three sizes,,1,Machine Frame,PCG-VEL-LSR-CONFIG,VEL-LSR-BDL,10
+PCG-VEL-LSR-POWER,Required laser source module — constraint selects one of three power ratings,,1,Laser Source Module,PCG-VEL-LSR-CONFIG,VEL-LSR-BDL,20
+PCG-VEL-LSR-AUTO,Optional automation modules — combine server automation with loader/unloader and sorter add-ons,3,0,Automation Module,,VEL-LSR-BDL,30
+PCG-VEL-LSR-GAS,Optional cutting assist gas — select one gas type per configuration,1,0,Cutting Gas,,VEL-LSR-BDL,40
+PCG-VEL-LSR-SERVICES,Optional add-on services — installation / maintenance / warranty (choose any combination),3,0,Add-on Services,,VEL-LSR-BDL,50
+PCG-VEL-LSR-SW,Optional CAD/CAM software subscription,1,0,CAD/CAM Software,,VEL-LSR-BDL,60
+PCG-VEL-STP-CTRL,,,,Process Controller & Software,,VEL-STP-BDL,1
+PCG-VEL-STP-DOORS,,2,1,Doors,,VEL-STP-BDL,2
+PCG-VEL-STP-OPT,,,0,Plant Options,,VEL-STP-BDL,4
+PCG-VEL-STP-LOAD,,,0,Loading & Handling,,VEL-STP-BDL,5
+PCG-VEL-STP-SVC,,,,Services & Documentation,,VEL-STP-BDL,6
+PCG-VEL-STP-CERT,,,0,Pressure Vessel Certification,,VEL-STP-BDL,7

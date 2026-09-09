@@ -1,0 +1,153 @@
+// =============================================================================
+// VelantisPackaging.cml
+// Constraint model for VELPACK G1 Packaging System (VEL-PACK-G1-BDL)
+// Active model in org: VELPACK_G1_Packaging_System_V2
+//
+// Bundle structure:
+//   velpackg1basemachine        — 1 required  — Base Machine
+//   tracktracemodulestandard    — 0..1 option — Standard T&T
+//   tracktracemoduleprofessional— 0..1 option — Professional T&T
+//   pharmafilmalupvc            — 0..1 option — Alu-PVC Film
+//   pharmafilmcoldformalualu    — 0..1 option — Cold-Form Alu Film
+//   pharmafilmchildresistant    — 0..1 option — Child-Resistant Film
+//   velpackinstallationservice  — 0..1 option — Installation Service
+//   velpackmaintenancestandard  — 0..1 option — Maintenance Standard
+//   velpackmaintenancepremium   — 0..1 option — Maintenance Premium
+//   velpackextendedwarranty     — 0..1 option — Extended Warranty
+//   velpackmgrbatchcontrolsw    — 0..1 option — VelPackMgr Batch Software
+//
+// Attributes:
+//   ATTR_VEL_PKG_CFG    — Picklist: Standard | Integrated | StandAlone
+//   ATTR_VEL_COMPLIANCE — Picklist: Standard | GMP_Plus | FDA_21_CFR
+//   ATTR_VEL_CAPACITY   — Decimal: computed from ATTR_VEL_PKG_CFG (read-only)
+//
+// Rules:
+//   1. ATTR_VEL_PKG_CFG  → ATTR_VEL_CAPACITY lookup table (formula)
+//   2. Integrated config → recommend Standard T&T + Batch Software
+//   3. StandAlone config → block both T&T variants
+//   4. FDA_21_CFR        → require Professional T&T; block Standard T&T
+//   5. T&T mutual exclusion (Standard vs Professional)
+//   6. Film mutual exclusion (Alu-PVC vs Cold-Form vs Child-Resistant)
+//   7. Maintenance mutual exclusion (Standard vs Premium)
+//   8. GMP+ advisory (informational, no hard block)
+// =============================================================================
+type LineItem;
+
+type VELPACKG1PackagingSystem : LineItem {
+    relation velpackextendedwarranty : VELPACKExtendedWarranty;
+
+    relation velpackmaintenancestandard : VELPACKMaintenanceStandard;
+
+    relation velpackmaintenancepremium : VELPACKMaintenancePremium;
+
+    relation velpackinstallationservice : VELPACKInstallationService;
+
+    relation pharmafilmchildresistant : PharmaFilmChildResistant;
+
+    relation pharmafilmcoldformalualu : PharmaFilmColdFormAluAlu;
+
+    relation pharmafilmalupvc : PharmaFilmAluPVC;
+
+    relation velpackg1basemachine : VELPACKG1BaseMachine[1..999] {
+        default VELPACKG1BaseMachine(1);
+    }
+
+    relation tracktracemoduleprofessional : TrackTraceModuleProfessional;
+
+    relation tracktracemodulestandard : TrackTraceModuleStandard;
+
+    relation velpackmgrbatchcontrolsoftware : VelPackMgrBatchControlSoftware;
+
+    @(configurable = false, defaultValue = "23400000")
+    decimal(2) ATTR_VEL_CAPACITY;
+
+    @(defaultValue = "Standard")
+    string ATTR_VEL_PKG_CFG = ["Standard", "Integrated", "StandAlone"];
+
+    @(defaultValue = "Standard")
+    string ATTR_VEL_COMPLIANCE = ["Standard", "GMP_Plus", "FDA_21_CFR"];
+
+    // -------------------------------------------------------------------------
+
+    // Rule 1 — Annual Capacity formula (driven by ATTR_VEL_PKG_CFG)
+
+    // -------------------------------------------------------------------------
+
+    @(sequence = "1")
+    constraint( table(ATTR_VEL_PKG_CFG,ATTR_VEL_CAPACITY,{"Standard",23400000},{"Integrated",35100000},{"StandAlone",15600000}) );
+
+    // -------------------------------------------------------------------------
+
+    // Rule 3 — StandAlone configuration: T&T group excluded entirely
+
+    // -------------------------------------------------------------------------
+
+    constraint(ATTR_VEL_PKG_CFG == "StandAlone" -> tracktracemodulestandard[TrackTraceModuleStandard] == 0, "Track & Trace is not compatible with StandAlone packaging configurations.");
+
+
+    /**
+    * @Title Trace Module mutual exclusion
+    */
+    constraint(tracktracemoduleprofessional[TrackTraceModuleProfessional] > 0 -> tracktracemodulestandard[TrackTraceModuleStandard] == 0, "Select either Standard or Professional Track & Trace, not both.");
+
+
+    /**
+    * @Title Pharma film mutual Exclusion 1
+    */
+    constraint(pharmafilmalupvc[PharmaFilmAluPVC] > 0 -> pharmafilmcoldformalualu[PharmaFilmColdFormAluAlu] == 0 && pharmafilmchildresistant[PharmaFilmChildResistant] == 0, "Select only one packaging film type. Alu-PVC is already selected.");
+
+
+    /**
+    * @Title Pharma film mutual Exclusion 3
+    */
+    constraint(pharmafilmcoldformalualu[PharmaFilmColdFormAluAlu] > 0 -> pharmafilmalupvc[PharmaFilmAluPVC] == 0 && pharmafilmchildresistant[PharmaFilmChildResistant] == 0, "Select only one packaging film type. Cold-Form Alu is already selected.");
+
+
+    /**
+    * @Title Pharma film mutual Exclusion 2
+    */
+    constraint(pharmafilmchildresistant[PharmaFilmChildResistant] > 0 -> pharmafilmalupvc[PharmaFilmAluPVC] == 0 && pharmafilmcoldformalualu[PharmaFilmColdFormAluAlu] == 0, "Select only one packaging film type. Child-Resistant is already selected.");
+
+
+    /**
+    * @Title Maintenance mutual Exclusion
+    */
+    constraint(velpackmaintenancepremium[VELPACKMaintenancePremium] > 0 -> velpackmaintenancestandard[VELPACKMaintenanceStandard] == 0, "Select either Standard or Premium maintenance service, not both.");
+
+    // -------------------------------------------------------------------------
+
+    // Rule 8 — GMP+ advisory (informational, no hard block)
+
+    // -------------------------------------------------------------------------
+
+    message(ATTR_VEL_COMPLIANCE == "GMP_Plus" && tracktracemodulestandard[TrackTraceModuleStandard] == 0 && tracktracemoduleprofessional[TrackTraceModuleProfessional] == 0, "GMP+ compliance typically requires electronic batch record traceability. Consider adding a Track & Trace module.");
+
+
+    /**
+    * @Title Warning Message for Regulatory Compliance FDA_21_CFR
+    */
+    message(ATTR_VEL_COMPLIANCE == "FDA_21_CFR" && tracktracemodulestandard[TrackTraceModuleStandard] > 0, "Standard Track & Trace does not meet FDA 21 CFR Part 11 serialization requirements. Select a professional module", "Warning");
+
+}
+
+type VELPACKExtendedWarranty : LineItem;
+
+type VELPACKMaintenanceStandard : LineItem;
+
+type VELPACKMaintenancePremium : LineItem;
+
+type VELPACKInstallationService : LineItem;
+
+type PharmaFilmChildResistant : LineItem;
+
+type PharmaFilmColdFormAluAlu : LineItem;
+
+type PharmaFilmAluPVC : LineItem;
+
+type VELPACKG1BaseMachine : LineItem;
+
+type TrackTraceModuleProfessional : LineItem;
+
+type TrackTraceModuleStandard : LineItem;
+
+type VelPackMgrBatchControlSoftware : LineItem;

@@ -1,0 +1,7 @@
+Action,FulfillmentProcess.Name,FulfillmentStepDefnGroup.Name,Name,Product.StockKeepingUnit,ProductClassification.Name,SourceClassIdentifier,SourceIdentifier,Type
+Add;Amend;Renew;No Change;Cancel,,VEL Finance,VEL Finance Service,VEL-DRO-BILL,,,,
+Add;Amend;Renew;No Change;Cancel,,VEL Manufacturing & Quality Control,VEL Manufacturing & QC Service,VEL-DRO-MFG,,,,
+Add;Amend;Renew;No Change;Cancel,,VEL Logistics & Shipping,VEL Logistics & Shipping Service,VEL-DRO-LOGIS,,,,
+Add;Amend;Renew;No Change;Cancel,,VEL Installation & Commissioning,VEL Installation & Commissioning Service,VEL-DRO-INST,,,,
+Add;Amend;Renew;No Change;Cancel,,VEL Service Activation,VEL Service Activation Service,VEL-DRO-SVCACT,,,,
+Add;Amend;Renew;No Change;Cancel,,VEL Maintenance & Warranty,VEL Maintenance Contract Service,VEL-DRO-MAINT,,,,

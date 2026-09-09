@@ -1,0 +1,185 @@
+minimum_cumulusci_version: "3.90.0"
+project:
+  name: VelantisIndustrialSystem2.0
+  package:
+    name: VelantisIndustrialSystem2.0
+    api_version: "67.0"
+
+  git:
+    default_branch: main
+
+# ---------------------------------------------------------------------------
+# Dataset path anchors
+# ---------------------------------------------------------------------------
+_vars:
+  vel_pcm_dataset:           &vel_pcm_dataset           "datasets/sfdmu/vel/en-US/vel-pcm"
+  vel_pricing_dataset:       &vel_pricing_dataset        "datasets/sfdmu/vel/en-US/vel-pricing"
+  vel_product_image_dataset: &vel_product_image_dataset  "datasets/sfdmu/vel/en-US/vel-product-images"
+  vel_dro_dataset:           &vel_dro_dataset             "datasets/sfdmu/vel/en-US/vel-dro"
+  vel_packaging_cml_dir:     &vel_packaging_cml_dir      "datasets/constraints/vel/VelantisPackaging"
+  vel_laser_cml_dir:         &vel_laser_cml_dir          "datasets/constraints/vel/VelantisLaser"
+
+# ---------------------------------------------------------------------------
+# Tasks — Velantis Industrial Systems only
+# ---------------------------------------------------------------------------
+tasks:
+
+  # --- Product Catalog ---
+  insert_vel_pcm_data:
+    group: Velantis
+    description: >
+      Insert Velantis product catalog — 27 saleable products + 5 DRO stub products,
+      two configurable bundles (VELPACK G1 packaging and PrecisionBeam+ laser),
+      attributes, component groups, catalog/category assignments.
+    class_path: tasks.rlm_sfdmu.LoadSFDMUData
+    options:
+      pathtoexportjson: *vel_pcm_dataset
+
+  create_vel_pcm_attributes:
+    group: Velantis
+    description: >
+      Idempotent Apex script — creates the full Velantis attribute chain:
+      AttributePicklist (4), AttributePicklistValue (12), AttributeDefinition (5),
+      AttributeCategory (2), AttributeCategoryAttribute (5), ProductClassification (3),
+      ProductClassificationAttr (5), ProductAttributeDefinition (5).
+      Bypasses SFDMU Bulk API silent-failure. Safe to re-run.
+    class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+    options:
+      path: scripts/apex/vel/create_vel_pcm_attributes.apex
+
+  create_vel_pcm_bundle_structure:
+    group: Velantis
+    description: >
+      Idempotent Apex script — creates ProductComponentGroup (21) and
+      ProductRelatedComponent (38) records for VELPACK G1, PrecisionBeam+,
+      and VelTherma STP bundles. Safe to re-run.
+    class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+    options:
+      path: scripts/apex/vel/create_vel_pcm_bundle_structure.apex
+
+  create_vel_stp_pcm_additions:
+    group: Velantis
+    description: >
+      Idempotent Apex script — creates VelTherma STP PCM additions (ATTR-VEL-STP-NUM-DOORS
+      attribute chain and service slots). Run after insert_vel_pcm_data and
+      create_vel_pcm_bundle_structure. Safe to re-run.
+    class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+    options:
+      path: scripts/apex/vel/create_vel_stp_pcm_additions.apex
+
+  create_vel_product_category_products:
+    group: Velantis
+    description: >
+      Idempotent Apex script — creates ProductCategoryProduct records linking
+      all 27 saleable products to their catalog categories.
+    class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+    options:
+      path: scripts/apex/vel/create_vel_product_category_products.apex
+
+  # --- Pricing ---
+  insert_vel_pricing_data:
+    group: Velantis
+    description: >
+      Insert Velantis pricing data — PricebookEntry (54, USD Standard Price Book),
+      PriceAdjustmentSchedule, AttributeBasedAdjustment, AttributeAdjustmentCondition,
+      CostBook (1), CostBookEntry (47, one per SKU for Margin Analysis component).
+      Run delete_vel_pricing_data first when reloading.
+    class_path: tasks.rlm_sfdmu.LoadSFDMUData
+    options:
+      pathtoexportjson: *vel_pricing_dataset
+
+  delete_vel_pricing_data:
+    group: Velantis
+    description: >
+      Delete Insert-operation records from the vel-pricing plan
+      (PricebookEntry, AttributeBasedAdjustment, AttributeAdjustmentCondition)
+      in reverse plan order. Run before insert_vel_pricing_data to enable
+      idempotent reloads.
+    class_path: tasks.rlm_sfdmu.DeleteSFDMUData
+    options:
+      pathtoexportjson: *vel_pricing_dataset
+
+  # --- Product Images ---
+  insert_vel_product_image_data:
+    group: Velantis
+    description: >
+      Update Product2.DisplayUrl for all 27 saleable Velantis products
+      to point to their VEL_* static resource images.
+    class_path: tasks.rlm_sfdmu.LoadSFDMUData
+    options:
+      pathtoexportjson: *vel_product_image_dataset
+
+  # --- DRO ---
+  insert_vel_dro_data:
+    group: Velantis
+    description: >
+      Insert Velantis DRO configuration — 15 decomposition rules across 5 fulfillment
+      groups, 13 step definitions with 12 cross-group dependencies, 5 scenarios,
+      workspace, jeopardy rules. AssignedTo resolved from target org.
+    class_path: tasks.rlm_sfdmu.LoadSFDMUData
+    options:
+      pathtoexportjson: *vel_dro_dataset
+      dynamic_assigned_to_user: true
+
+  update_vel_pfdr_rules:
+    group: Velantis
+    description: >
+      Re-save Velantis ProductFulfillmentDecompRule records (VEL prefix) to trigger
+      ExecuteOnRuleId generation. Required workaround for 262 platform bug —
+      run after insert_vel_dro_data.
+    class_path: cumulusci.tasks.apex.anon.AnonymousApexTask
+    options:
+      path: scripts/apex/vel/update_vel_pfdr_rules.apex
+
+  # --- CML Constraint Models ---
+  import_vel_packaging_cml:
+    group: Velantis
+    description: >
+      Import Velantis Packaging CML constraint model into org — creates
+      ExpressionSet, ExpressionSetDefinitionVersion, ExpressionSetConstraintObj,
+      and uploads the compiled blob.
+    class_path: tasks.rlm_cml.ImportCML
+    options:
+      data_dir: *vel_packaging_cml_dir
+      dataset_dirs: "datasets/sfdmu/vel/en-US/vel-pcm"
+
+  import_vel_laser_cml:
+    group: Velantis
+    description: >
+      Import Velantis Laser CML constraint model into org — creates
+      ExpressionSet, ExpressionSetDefinitionVersion, ExpressionSetConstraintObj,
+      and uploads the compiled blob.
+    class_path: tasks.rlm_cml.ImportCML
+    options:
+      data_dir: *vel_laser_cml_dir
+      dataset_dirs: "datasets/sfdmu/vel/en-US/vel-pcm"
+
+  export_vel_packaging_cml:
+    group: Velantis
+    description: >
+      Export the compiled Velantis Packaging constraint model from org to
+      datasets/constraints/vel/VelantisPackaging/. Run after first compile.
+    class_path: tasks.rlm_cml.ExportCML
+    options:
+      developer_name: VELPACK_G1_Packaging_System
+      output_dir: *vel_packaging_cml_dir
+
+  export_vel_laser_cml:
+    group: Velantis
+    description: >
+      Export the compiled Velantis Laser constraint model from org to
+      datasets/constraints/vel/VelantisLaser/. Run after first compile.
+    class_path: tasks.rlm_cml.ExportCML
+    options:
+      developer_name: PrecisionBeam_Laser_Cutting_System
+      output_dir: *vel_laser_cml_dir
+
+  validate_vel_cml:
+    group: Velantis
+    description: >
+      Validate VelantisPackaging.cml and VelantisLaser.cml syntax, annotations,
+      and ESC coverage against the PCM dataset.
+    class_path: tasks.rlm_cml.ValidateCML
+    options:
+      cml_dir: scripts/cml
+      data_dir: *vel_packaging_cml_dir

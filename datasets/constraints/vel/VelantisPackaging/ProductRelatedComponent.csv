@@ -1,0 +1,12 @@
+Id,Name,ParentProductId,ParentProduct.Name,ChildProductId,ChildProduct.Name,ChildProductClassificationId,ChildProductClassification.Name,ProductRelationshipTypeId,ProductRelationshipType.Name,Sequence
+0dSg7000000DxlREAS,PRC-000000474,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnafuAAA,VELPACK G1 Base Machine,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000DxlSEAS,PRC-000000475,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnafvAAA,Track & Trace Module — Standard,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000DxlTEAS,PRC-000000476,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnafwAAA,Track & Trace Module — Professional,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,20
+0dSg7000000DxlUEAS,PRC-000000477,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnafxAAA,Pharma Film Alu-PVC,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000DxlVEAS,PRC-000000478,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnafyAAA,Pharma Film Cold-Form (Alu-Alu),,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,20
+0dSg7000000DxlWEAS,PRC-000000479,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnafzAAA,Pharma Film Child-Resistant,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,30
+0dSg7000000DxlbEAC,PRC-000000484,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnag4AAA,VelPackMgr Batch Control Software,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000Dxn3EAC,PRC-000000497,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnag0AAA,VELPACK Installation Service,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000Dxn4EAC,PRC-000000498,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnag1AAA,VELPACK Maintenance — Standard,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,20
+0dSg7000000Dxn5EAC,PRC-000000499,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnag2AAA,VELPACK Maintenance — Premium,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,30
+0dSg7000000Dxn6EAC,PRC-000000500,01tg700000hnaftAAA,VELPACK G1 Packaging System,01tg700000hnag3AAA,Extended Warranty (VELPACK G1),,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,40

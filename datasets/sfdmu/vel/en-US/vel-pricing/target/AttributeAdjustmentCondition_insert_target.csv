@@ -1,0 +1,7 @@
+﻿"BooleanValue","DateTimeValue","DateValue","DoubleValue","IntegerValue","Operator","StringValue","AttributeDefinitionId","ProductId","AttributeBasedAdjRuleId","Errors"
+"#N/A","#N/A","#N/A","#N/A","#N/A","equals","High (10 kW)","0tjg7000000CnbJAAS","01tg700000hnag5AAA","12Hg7000000DtbNEAS","Ensure that the relationship between the Product, the Attribute Definition, and an adjustment rule is unique."
+"#N/A","#N/A","#N/A","#N/A","#N/A","equals","Standard (4 kW)","0tjg7000000CnbJAAS","01tg700000hnag5AAA","12Hg7000000DtbOEAS","Ensure that the relationship between the Product, the Attribute Definition, and an adjustment rule is unique."
+"#N/A","#N/A","#N/A","#N/A","#N/A","equals","Ultra (15 kW)","0tjg7000000CnbJAAS","01tg700000hnag5AAA","12Hg7000000DtbPEAS","Ensure that the relationship between the Product, the Attribute Definition, and an adjustment rule is unique."
+"#N/A","#N/A","#N/A","#N/A","#N/A","equals","Integrated","0tjg7000000CnbFAAS","01tg700000hnaftAAA","12Hg7000000DtbQEAS","Ensure that the relationship between the Product, the Attribute Definition, and an adjustment rule is unique."
+"#N/A","#N/A","#N/A","#N/A","#N/A","equals","Standard","0tjg7000000CnbFAAS","01tg700000hnaftAAA","12Hg7000000DtbREAS","Ensure that the relationship between the Product, the Attribute Definition, and an adjustment rule is unique."
+"#N/A","#N/A","#N/A","#N/A","#N/A","equals","StandAlone","0tjg7000000CnbFAAS","01tg700000hnaftAAA","12Hg7000000DtbSEAS","Ensure that the relationship between the Product, the Attribute Definition, and an adjustment rule is unique."

@@ -1,0 +1,55 @@
+$$Product2.StockKeepingUnit$ProductSellingModel.Name$CurrencyIsoCode,CurrencyIsoCode,IsActive,IsDerived,Name,Pricebook2.$$Name$IsStandard,Product2.StockKeepingUnit,ProductSellingModel.$$Name$SellingModelType,UnitPrice
+VEL-PACK-G1-BDL;One-Time;USD,USD,true,false,VEL-PACK-G1-BDL_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-PACK-G1-BDL,One-Time;OneTime,245000.00
+VEL-PACK-G1-BASE;One-Time;USD,USD,true,false,VEL-PACK-G1-BASE_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-PACK-G1-BASE,One-Time;OneTime,175000.00
+VEL-PACK-G1-TT;One-Time;USD,USD,true,false,VEL-PACK-G1-TT_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-PACK-G1-TT,One-Time;OneTime,24500.00
+VEL-PACK-G1-TT-PRO;One-Time;USD,USD,true,false,VEL-PACK-G1-TT-PRO_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-PACK-G1-TT-PRO,One-Time;OneTime,38500.00
+VEL-PACK-FILM;Evergreen Monthly;USD,USD,true,false,VEL-PACK-FILM_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-PACK-FILM,Evergreen Monthly;Evergreen,850.00
+VEL-PACK-FILM;One-Time;USD,USD,true,false,VEL-PACK-FILM_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-PACK-FILM,One-Time;OneTime,8500.00
+VEL-PACK-FILM-CF;Evergreen Monthly;USD,USD,true,false,VEL-PACK-FILM-CF_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-PACK-FILM-CF,Evergreen Monthly;Evergreen,1150.00
+VEL-PACK-FILM-CR;Evergreen Monthly;USD,USD,true,false,VEL-PACK-FILM-CR_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-PACK-FILM-CR,Evergreen Monthly;Evergreen,980.00
+VEL-SRV-INSTALL-PKG;One-Time;USD,USD,true,false,VEL-SRV-INSTALL-PKG_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-SRV-INSTALL-PKG,One-Time;OneTime,12500.00
+VEL-SRV-MAINT-PKG;Evergreen Monthly;USD,USD,true,false,VEL-SRV-MAINT-PKG_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-SRV-MAINT-PKG,Evergreen Monthly;Evergreen,2100.00
+VEL-SRV-MAINT-PKG;Term Annual;USD,USD,true,false,VEL-SRV-MAINT-PKG_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-SRV-MAINT-PKG,Term Annual;TermDefined,22000.00
+VEL-SRV-MAINT-PKG-PREM;Evergreen Monthly;USD,USD,true,false,VEL-SRV-MAINT-PKG-PREM_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-SRV-MAINT-PKG-PREM,Evergreen Monthly;Evergreen,3200.00
+VEL-SRV-MAINT-PKG-PREM;Term Annual;USD,USD,true,false,VEL-SRV-MAINT-PKG-PREM_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-SRV-MAINT-PKG-PREM,Term Annual;TermDefined,33500.00
+VEL-SRV-WARRANTY-PKG;Term Annual;USD,USD,true,false,VEL-SRV-WARRANTY-PKG_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-SRV-WARRANTY-PKG,Term Annual;TermDefined,8900.00
+VEL-SW-PACK-MGR;Evergreen Monthly;USD,USD,true,false,VEL-SW-PACK-MGR_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-SW-PACK-MGR,Evergreen Monthly;Evergreen,299.00
+VEL-SW-PACK-MGR;Term Annual;USD,USD,true,false,VEL-SW-PACK-MGR_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-SW-PACK-MGR,Term Annual;TermDefined,2999.00
+VEL-LSR-BDL;One-Time;USD,USD,true,false,VEL-LSR-BDL_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-BDL,One-Time;OneTime,185000.00
+VEL-LSR-1530;One-Time;USD,USD,true,false,VEL-LSR-1530_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-1530,One-Time;OneTime,95000.00
+VEL-LSR-2040;One-Time;USD,USD,true,false,VEL-LSR-2040_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-2040,One-Time;OneTime,115000.00
+VEL-LSR-2060;One-Time;USD,USD,true,false,VEL-LSR-2060_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-2060,One-Time;OneTime,148000.00
+VEL-LSR-SRC-4KW;One-Time;USD,USD,true,false,VEL-LSR-SRC-4KW_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-SRC-4KW,One-Time;OneTime,32000.00
+VEL-LSR-SRC-10KW;One-Time;USD,USD,true,false,VEL-LSR-SRC-10KW_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-SRC-10KW,One-Time;OneTime,58000.00
+VEL-LSR-SRC-15KW;One-Time;USD,USD,true,false,VEL-LSR-SRC-15KW_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-SRC-15KW,One-Time;OneTime,82000.00
+VEL-LSR-AUTO-CS;One-Time;USD,USD,true,false,VEL-LSR-AUTO-CS_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-AUTO-CS,One-Time;OneTime,24500.00
+VEL-CUT-GAS;Evergreen Monthly;USD,USD,true,false,VEL-CUT-GAS_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-CUT-GAS,Evergreen Monthly;Evergreen,450.00
+VEL-SRV-INSTALL-LSR;One-Time;USD,USD,true,false,VEL-SRV-INSTALL-LSR_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-SRV-INSTALL-LSR,One-Time;OneTime,15500.00
+VEL-SRV-MAINT-LSR;Evergreen Monthly;USD,USD,true,false,VEL-SRV-MAINT-LSR_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-SRV-MAINT-LSR,Evergreen Monthly;Evergreen,1800.00
+VEL-SRV-WARRANTY-LSR;Term Annual;USD,USD,true,false,VEL-SRV-WARRANTY-LSR_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-SRV-WARRANTY-LSR,Term Annual;TermDefined,7200.00
+VEL-SW-LSR-CAD;Evergreen Monthly;USD,USD,true,false,VEL-SW-LSR-CAD_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-SW-LSR-CAD,Evergreen Monthly;Evergreen,399.00
+VEL-SOFTWARE-NC;Evergreen Monthly;USD,USD,true,false,VEL-SOFTWARE-NC_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-SOFTWARE-NC,Evergreen Monthly;Evergreen,149.00
+VEL-LSR-AUTO-LU;One-Time;USD,USD,true,false,VEL-LSR-AUTO-LU_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-AUTO-LU,One-Time;OneTime,38500.00
+VEL-LSR-AUTO-SORT;One-Time;USD,USD,true,false,VEL-LSR-AUTO-SORT_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-LSR-AUTO-SORT,One-Time;OneTime,22000.00
+VEL-CUT-GAS-O2;Evergreen Monthly;USD,USD,true,false,VEL-CUT-GAS-O2_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-CUT-GAS-O2,Evergreen Monthly;Evergreen,320.00
+VEL-CUT-GAS-AIR;Evergreen Monthly;USD,USD,true,false,VEL-CUT-GAS-AIR_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-CUT-GAS-AIR,Evergreen Monthly;Evergreen,180.00
+VEL-STP-BDL;One-Time;USD,USD,true,false,VEL-STP-BDL_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-BDL,One-Time;OneTime,192000.00
+VEL-STP-CTRL;One-Time;USD,USD,true,false,VEL-STP-CTRL_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-CTRL,One-Time;OneTime,48000.00
+VEL-STP-CTRL-SW;Term Annual;USD,USD,true,false,VEL-STP-CTRL-SW_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-STP-CTRL-SW,Term Annual;TermDefined,9200.00
+VEL-STP-CTRL-FMM;Term Annual;USD,USD,true,false,VEL-STP-CTRL-FMM_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-STP-CTRL-FMM,Term Annual;TermDefined,12500.00
+VEL-STP-DOOR-H;One-Time;USD,USD,true,false,VEL-STP-DOOR-H_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-DOOR-H,One-Time;OneTime,8800.00
+VEL-STP-DOOR-V;One-Time;USD,USD,true,false,VEL-STP-DOOR-V_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-DOOR-V,One-Time;OneTime,10500.00
+VEL-STP-OPT-DRAIN;One-Time;USD,USD,true,false,VEL-STP-OPT-DRAIN_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-OPT-DRAIN,One-Time;OneTime,4400.00
+VEL-STP-OPT-GMP;One-Time;USD,USD,true,false,VEL-STP-OPT-GMP_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-OPT-GMP,One-Time;OneTime,16000.00
+VEL-STP-CERT-PVC;One-Time;USD,USD,true,false,VEL-STP-CERT-PVC_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-CERT-PVC,One-Time;OneTime,5800.00
+VEL-STP-LOAD-CART;One-Time;USD,USD,true,false,VEL-STP-LOAD-CART_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-LOAD-CART,One-Time;OneTime,2950.00
+VEL-STP-LOAD-TRAY;One-Time;USD,USD,true,false,VEL-STP-LOAD-TRAY_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-LOAD-TRAY,One-Time;OneTime,1250.00
+VEL-STP-LOAD-RACK;One-Time;USD,USD,true,false,VEL-STP-LOAD-RACK_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-LOAD-RACK,One-Time;OneTime,3650.00
+VEL-STP-DOC-VAL;One-Time;USD,USD,true,false,VEL-STP-DOC-VAL_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-DOC-VAL,One-Time;OneTime,7800.00
+VEL-STP-SVC-INST;One-Time;USD,USD,true,false,VEL-STP-SVC-INST_Standard Price Book_One-Time_USD,Standard Price Book;true,VEL-STP-SVC-INST,One-Time;OneTime,12500.00
+VEL-STP-SRV-MAINT-STD;Evergreen Monthly;USD,USD,true,false,VEL-STP-SRV-MAINT-STD_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-STP-SRV-MAINT-STD,Evergreen Monthly;Evergreen,1650.00
+VEL-STP-SRV-MAINT-STD;Term Annual;USD,USD,true,false,VEL-STP-SRV-MAINT-STD_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-STP-SRV-MAINT-STD,Term Annual;TermDefined,17500.00
+VEL-STP-SRV-MAINT-PREM;Evergreen Monthly;USD,USD,true,false,VEL-STP-SRV-MAINT-PREM_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-STP-SRV-MAINT-PREM,Evergreen Monthly;Evergreen,2450.00
+VEL-STP-SRV-MAINT-PREM;Term Annual;USD,USD,true,false,VEL-STP-SRV-MAINT-PREM_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-STP-SRV-MAINT-PREM,Term Annual;TermDefined,26000.00
+VEL-SW-RMP;Evergreen Monthly;USD,USD,true,false,VEL-SW-RMP_Standard Price Book_Evergreen Monthly_USD,Standard Price Book;true,VEL-SW-RMP,Evergreen Monthly;Evergreen,499.00
+VEL-SW-RMP;Term Annual;USD,USD,true,false,VEL-SW-RMP_Standard Price Book_Term Annual_USD,Standard Price Book;true,VEL-SW-RMP,Term Annual;TermDefined,4999.00

@@ -1,0 +1,6 @@
+EstimatedDuration,EstimatedDurationUnit,FlowDefinition,IntegrationDefinition.DeveloperName,JeopardyThreshold,JeopardyThresholdUnit,Name,StepType
+5,Days,,,4,Days,VEL-FSJR-001,ManualTask
+2,Days,,,1,Days,VEL-FSJR-002,ManualTask
+3,Days,,,2,Days,VEL-FSJR-003,ManualTask
+2,Days,,,1,Days,VEL-FSJR-004,ManualTask
+1,Days,,,4,Hours,VEL-FSJR-005,ManualTask

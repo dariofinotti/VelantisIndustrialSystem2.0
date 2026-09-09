@@ -1,0 +1,167 @@
+// =============================================================================
+// VelantisLaser.cml
+// Constraint model for PrecisionBeam+ Laser Cutting System (VEL-LSR-BDL)
+// Active org model: PrecisionBeam_Laser_Cutting_System_V2
+//
+// IMPORTANT — Org type-to-product mapping (verified via ExpressionSetConstraintObj):
+//   kWFiberLaserSourceModule  → 10 kW product  (no numeric suffix = 10 kW)
+//   kWFiberLaserSourceModule1 →  4 kW product  (suffix "1" = 4 kW)
+//   kWFiberLaserSourceModule2 → 15 kW product  (suffix "2" = 15 kW)
+//   Constraints use these inverted mappings intentionally.
+//
+// Attributes:
+//   ATTR_VEL_SIZE  — Picklist: none | 1530 | 2040 | 2060
+//   ATTR_VEL_POWER — Picklist: none | Standard (4 kW) | High (10 kW) | Ultra (15 kW)
+//
+// Rules:
+//   1. ATTR_VEL_SIZE  → exactly one machine frame (constraint)
+//   2. ATTR_VEL_POWER → exactly one laser source  (constraint)
+//   5. Ultra (15 kW) without maintenance → advisory (message)
+//      Ultra (15 kW) without nitrogen    → advisory (message)
+//
+// TODO — pending addition of Oxygen/Air gas relations and Rule 6 (gas mutual exclusion):
+//   Once OxygenAssistGasSubscription and AirAssistGasSubscription types are
+//   associated in the org, add:
+//     relation oxygenassistgassubscription : OxygenAssistGasSubscription;
+//     relation airassistgassubscription    : AirAssistGasSubscription;
+//   And Rule 6 gas mutual exclusion constraint blocks.
+// =============================================================================
+
+type LineItem;
+
+type PrecisionBeamLaserCuttingSystem : LineItem {
+    relation compactserverautomationmodule : CompactServerAutomationModule;
+
+    relation precisionbeamextendedwarranty : PrecisionBeamExtendedWarranty;
+
+    relation precisionbeaminstallationservice : PrecisionBeamInstallationService;
+
+    relation precisionbeammaintenanceplan : PrecisionBeamMaintenancePlan;
+
+    relation kwfiberlasersourcemodule : kWFiberLaserSourceModule;
+
+    relation kwfiberlasersourcemodule1 : kWFiberLaserSourceModule1;
+
+    relation kwfiberlasersourcemodule2 : kWFiberLaserSourceModule2;
+
+    relation nitrogenassistgassubscription : NitrogenAssistGasSubscription;
+
+    relation precisioncutcadcamsoftware : PrecisionCutCADCAMSoftware;
+
+    relation precisionbeam2060machineframe : PrecisionBeam2060MachineFrame;
+
+    relation precisionbeam1530machineframe : PrecisionBeam1530MachineFrame;
+
+    relation precisionbeam2040machineframe : PrecisionBeam2040MachineFrame;
+
+    string ATTR_VEL_SIZE = ["none", "1530", "2040", "2060"];
+
+    string ATTR_VEL_POWER = ["none", "Standard (4 kW)", "High (10 kW)", "Ultra (15 kW)"];
+
+    // Rule 1 — Frame selection (constraint)
+
+
+    /**
+    * @Title Automatic Selection Machine Frame- for 1530 size
+    */
+    constraint(ATTR_VEL_SIZE == "1530" -> precisionbeam1530machineframe[PrecisionBeam1530MachineFrame] == 1, "Machine size 1530 requires the PrecisionBeam 1530 Machine Frame.");
+
+
+    /**
+    * @Title Automatic Selection Machine Frame- for 2040 size
+    */
+    constraint(ATTR_VEL_SIZE == "2040" -> precisionbeam2040machineframe[PrecisionBeam2040MachineFrame] == 1, "Machine size 2040 requires the PrecisionBeam 2040 Machine Frame.");
+
+
+    /**
+    * @Title Automatic Selection Machine Frame- for 2060 size
+    */
+    constraint(ATTR_VEL_SIZE == "2060" -> precisionbeam2060machineframe[PrecisionBeam2060MachineFrame] == 1, "Machine size 2060 requires the PrecisionBeam 2060 Machine Frame.");
+
+
+    /**
+    * @Title Exclude Machine other machine frames - 1530
+    */
+    constraint(ATTR_VEL_SIZE == "1530" -> precisionbeam2040machineframe[PrecisionBeam2040MachineFrame] == 0 && precisionbeam2060machineframe[PrecisionBeam2060MachineFrame] == 0, "Only one machine frame can be selected.");
+
+
+    /**
+    * @Title Exclude Machine other machine frames - 2040
+    */
+    constraint(ATTR_VEL_SIZE == "2040" -> precisionbeam1530machineframe[PrecisionBeam1530MachineFrame] == 0 && precisionbeam2060machineframe[PrecisionBeam2060MachineFrame] == 0, "Only one machine frame can be selected.");
+
+
+    /**
+    * @Title Exclude Machine other machine frames - 2060
+    */
+    constraint(ATTR_VEL_SIZE == "2060" -> precisionbeam1530machineframe[PrecisionBeam1530MachineFrame] == 0 && precisionbeam2040machineframe[PrecisionBeam2040MachineFrame] == 0, "Only one machine frame can be selected.");
+
+    // Rule 2 — Laser source (4kW=module1, 10kW=module, 15kW=module2)
+
+
+    /**
+    * @Title Automatic Selection Laser Source - for Standard (4kW)
+    */
+    constraint(ATTR_VEL_POWER == "Standard (4 kW)" -> kwfiberlasersourcemodule1[kWFiberLaserSourceModule1] == 1, "Standard (4 kW) requires the 4 kW Fiber Laser Source Module.");
+
+
+    /**
+    * @Title Automatic Selection Laser Source - for High (10kW)
+    */
+    constraint(ATTR_VEL_POWER == "High (10 kW)" -> kwfiberlasersourcemodule[kWFiberLaserSourceModule] == 1, "High (10 kW) requires the 10 kW Fiber Laser Source Module.");
+
+
+    /**
+    * @Title Automatic Selection Laser Source - for Ultra (15kW)
+    */
+    constraint(ATTR_VEL_POWER == "Ultra (15 kW)" -> kwfiberlasersourcemodule2[kWFiberLaserSourceModule2] == 1, "Ultra (15 kW) requires the 15 kW Fiber Laser Source Module.");
+
+
+    /**
+    * @Title Exclude other Laser sources - Standard
+    */
+    constraint(ATTR_VEL_POWER == "Standard (4 kW)" -> kwfiberlasersourcemodule[kWFiberLaserSourceModule] == 0 && kwfiberlasersourcemodule2[kWFiberLaserSourceModule2] == 0, "Only one laser source module can be selected.");
+
+
+    /**
+    * @Title Exclude other Laser sources - High
+    */
+    constraint(ATTR_VEL_POWER == "High (10 kW)" -> kwfiberlasersourcemodule1[kWFiberLaserSourceModule1] == 0 && kwfiberlasersourcemodule2[kWFiberLaserSourceModule2] == 0, "Only one laser source module can be selected.");
+
+
+    /**
+    * @Title Exclude other Laser sources - Ultra
+    */
+    constraint(ATTR_VEL_POWER == "Ultra (15 kW)" -> kwfiberlasersourcemodule[kWFiberLaserSourceModule] == 0 && kwfiberlasersourcemodule1[kWFiberLaserSourceModule1] == 0, "Only one laser source module can be selected.");
+
+    // Rule 5 — Ultra (15 kW) without maintenance: advisory
+
+    message(ATTR_VEL_POWER == "Ultra (15 kW)" && precisionbeammaintenanceplan[PrecisionBeamMaintenancePlan] == 0, "A Maintenance Plan is strongly recommended for Ultra (15 kW) high-power laser systems to protect your investment.");
+
+    message(ATTR_VEL_POWER == "Ultra (15 kW)" && nitrogenassistgassubscription[NitrogenAssistGasSubscription] == 0, "Nitrogen assist gas is recommended for Ultra (15 kW) cutting applications on thick steel.");
+
+}
+
+type CompactServerAutomationModule : LineItem;
+
+type PrecisionBeamExtendedWarranty : LineItem;
+
+type PrecisionBeamInstallationService : LineItem;
+
+type PrecisionBeamMaintenancePlan : LineItem;
+
+type kWFiberLaserSourceModule : LineItem;
+
+type kWFiberLaserSourceModule1 : LineItem;
+
+type kWFiberLaserSourceModule2 : LineItem;
+
+type NitrogenAssistGasSubscription : LineItem;
+
+type PrecisionCutCADCAMSoftware : LineItem;
+
+type PrecisionBeam2060MachineFrame : LineItem;
+
+type PrecisionBeam1530MachineFrame : LineItem;
+
+type PrecisionBeam2040MachineFrame : LineItem;

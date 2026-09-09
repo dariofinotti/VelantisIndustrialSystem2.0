@@ -1,0 +1,15 @@
+AmendGroup.Name,AssignedTo.Name,CancelledGroup.Name,CustomBaseExecutionDate,CustomFulfillmentScope,DelayOf,DelayUnit,ExecuteOn,FlowDefinitionName,ForcePlanFreezeDuringExecution,IntegrationDefinitionName.DeveloperName,IsSkipBranch,Name,OmniscriptName,PointOfNoReturn,ResumeOnRule.Name,Scope,StepDefinitionGroup.Name,StepType,TaskAllocationType,UsageType
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Post Advance Invoice,,,,Plan,VEL Finance,ManualTask,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Process Final Invoice,,,,Plan,VEL Finance,ManualTask,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Receive Payment,,,,Plan,VEL Finance,ManualTask,,Fulfillment
+,,,,,,,,,Never,,false,VEL Schedule Production,,,,Plan,VEL Manufacturing & Quality Control,Milestone,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Machine Assembly,,,,LineItem,VEL Manufacturing & Quality Control,ManualTask,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Factory Acceptance Test,,,,LineItem,VEL Manufacturing & Quality Control,ManualTask,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Arrange Freight,,,,LineItem,VEL Logistics & Shipping,ManualTask,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Confirm Delivery Date,,,,LineItem,VEL Logistics & Shipping,ManualTask,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Site Survey,,,,Plan,VEL Installation & Commissioning,ManualTask,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL On-Site Installation,,,,LineItem,VEL Installation & Commissioning,ManualTask,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Commissioning & Calibration,,,,LineItem,VEL Installation & Commissioning,ManualTask,,Fulfillment
+,,,,,,,,,Never,,false,VEL Register Warranty,,,,Plan,VEL Service Activation,Milestone,,Fulfillment
+,__DRO_ASSIGNED_TO_USER__,,,,,,,,Never,,false,VEL Activate Software License,,,,LineItem,VEL Service Activation,ManualTask,,Fulfillment
+,,,,,,,,VEL_Maintenance_Contract_DRO_Task,Never,,false,VEL Create Service Contract,,false,,Plan,VEL Maintenance & Warranty,AutoTask,,Fulfillment

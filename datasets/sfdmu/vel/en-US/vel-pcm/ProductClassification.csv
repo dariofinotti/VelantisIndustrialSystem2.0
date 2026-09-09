@@ -1,0 +1,9 @@
+Code,Name,ParentProductClassification.Code,Status
+VEL_INDUSTRIAL_HW,Velantis Industrial Hardware,,Active
+VEL_INDUSTRIAL_SVC,Velantis Industrial Services,,Active
+VEL_INDUSTRIAL_SW,Velantis Industrial Software,,Active
+VEL_PKG_BDL,VELPACK G1 Packaging Bundle,,Active
+VEL_LSR_BDL,PrecisionBeam+ Laser Bundle,,Active
+VEL_STP_BDL,VelTherma STP Sterilizer Bundle,,Active
+VEL_STP_CTRL_CLASS,VelTherma Process Controller & Software,,Active
+VEL_STP_DOOR_CLASS,VelTherma Motorized Access Door,,Active

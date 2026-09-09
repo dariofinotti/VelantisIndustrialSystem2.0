@@ -1,0 +1,6 @@
+﻿"Id","CustomDecompositionScope","DecompositionScope","FulfillmentQtyCalcMethod","IsActive","Name","StockKeepingUnit","Errors"
+"01tg700000hnagJAAQ","Ramp_Identifier","Account","AlwaysOne","true","VEL Finance Service","VEL-DRO-BILL","#N/A"
+"01tg700000hnagKAAQ","#N/A","Account","AlwaysOne","true","VEL Manufacturing & QC Service","VEL-DRO-MFG","#N/A"
+"01tg700000hnagLAAQ","#N/A","Account","AlwaysOne","true","VEL Logistics & Shipping Service","VEL-DRO-LOGIS","#N/A"
+"01tg700000hnagMAAQ","#N/A","Account","AlwaysOne","true","VEL Installation & Commissioning","VEL-DRO-INST","#N/A"
+"01tg700000hnagNAAQ","#N/A","Account","AlwaysOne","true","VEL Service Activation","VEL-DRO-SVCACT","#N/A"

@@ -1,0 +1,72 @@
+Abbreviation,Code,DisplayValue,IsDefault,Name,Picklist.Name,Sequence,Status,Value
+,VEL_STP_W450,450 mm,false,450mm Width,VEL_STP_ChamberWidth,1,Active,450
+,VEL_STP_W660,660 mm,false,660mm Width,VEL_STP_ChamberWidth,2,Active,660
+,VEL_STP_W800,800 mm,true,800mm Width,VEL_STP_ChamberWidth,3,Active,800
+,VEL_STP_W1000,1000 mm,false,1000mm Width,VEL_STP_ChamberWidth,4,Active,1000
+,VEL_STP_W1250,1250 mm,false,1250mm Width,VEL_STP_ChamberWidth,5,Active,1250
+,VEL_STP_H450,450 mm,false,450mm Height,VEL_STP_ChamberHeight,1,Active,450
+,VEL_STP_H660,660 mm,false,660mm Height,VEL_STP_ChamberHeight,2,Active,660
+,VEL_STP_H800,800 mm,true,800mm Height,VEL_STP_ChamberHeight,3,Active,800
+,VEL_STP_H950,950 mm,false,950mm Height,VEL_STP_ChamberHeight,4,Active,950
+,VEL_STP_H1000,1000 mm,false,1000mm Height,VEL_STP_ChamberHeight,5,Active,1000
+,VEL_STP_H1250,1250 mm,false,1250mm Height,VEL_STP_ChamberHeight,6,Active,1250
+,VEL_STP_D700,700 mm,false,700mm Depth,VEL_STP_ChamberDepth,1,Active,700
+,VEL_STP_D1000,1000 mm,true,1000mm Depth,VEL_STP_ChamberDepth,2,Active,1000
+,VEL_STP_D1250,1250 mm,false,1250mm Depth,VEL_STP_ChamberDepth,3,Active,1250
+,VEL_STP_D1400,1400 mm,false,1400mm Depth,VEL_STP_ChamberDepth,4,Active,1400
+,VEL_STP_D1500,1500 mm,false,1500mm Depth,VEL_STP_ChamberDepth,5,Active,1500
+,VEL_STP_D1750,1750 mm,false,1750mm Depth,VEL_STP_ChamberDepth,6,Active,1750
+,VEL_STP_D2000,2000 mm,false,2000mm Depth,VEL_STP_ChamberDepth,7,Active,2000
+,VEL_STP_D2500,2500 mm,false,2500mm Depth,VEL_STP_ChamberDepth,8,Active,2500
+,VEL_STP_DOOR_H,Motorized Horizontal,true,Motorized Horizontal,VEL_STP_DoorType,1,Active,Motorized Horizontal
+,VEL_STP_DOOR_V,Motorized Vertical,false,Motorized Vertical,VEL_STP_DoorType,2,Active,Motorized Vertical
+,VEL_STP_DOOR_SA,Semi-Automatic Hinged,false,Semi-Automatic Hinged,VEL_STP_DoorType,3,Active,Semi-Automatic Hinged
+,VEL_STP_DOORS1,Single Door,true,Single Door,VEL_STP_NumDoors,1,Active,Single Door
+,VEL_STP_DOORS2,Double Door (Pass-Through),false,Double Door (Pass-Through),VEL_STP_NumDoors,2,Active,Double Door (Pass-Through)
+,VEL_STP_SECT_SQ,Square,true,Square,VEL_STP_ChamberSection,1,Active,Square
+,VEL_STP_SECT_CR,Circular,false,Circular,VEL_STP_ChamberSection,2,Active,Circular
+,VEL_STP_COMP_PED,PED 2014/68/EU,true,PED 2014/68/EU,VEL_STP_ComplianceStd,1,Active,PED 2014/68/EU
+,VEL_STP_COMP_ASME,ASME,false,ASME,VEL_STP_ComplianceStd,2,Active,ASME
+,VEL_STP_COMP_PEDAS,PED + ASME,false,PED + ASME,VEL_STP_ComplianceStd,3,Active,PED + ASME
+,VEL_STP_COMP_CN,PED + ASME + SELO (China),false,PED + ASME + SELO (China),VEL_STP_ComplianceStd,4,Active,PED + ASME + SELO (China)
+,VEL_STP_COMP_CA,PED + CRN (Canada),false,PED + CRN (Canada),VEL_STP_ComplianceStd,5,Active,PED + CRN (Canada)
+,VEL_STP_PWR_EU,400V 3-phase 50Hz (EU/INT),true,400V 3-phase 50Hz (EU/INT),VEL_STP_PowerSupply,1,Active,400V 3-phase 50Hz (EU/INT)
+,VEL_STP_PWR_60HZ,400V 3-phase 60Hz,false,400V 3-phase 60Hz,VEL_STP_PowerSupply,2,Active,400V 3-phase 60Hz
+,VEL_STP_PWR_208,208V 3-phase 60Hz (US),false,208V 3-phase 60Hz (US),VEL_STP_PowerSupply,3,Active,208V 3-phase 60Hz (US)
+,VEL_STP_PWR_480,480V 3-phase 60Hz (US),false,480V 3-phase 60Hz (US),VEL_STP_PowerSupply,4,Active,480V 3-phase 60Hz (US)
+,VEL_STP_SIDE1,Side 1 (Loading),true,Side 1 (Loading),VEL_STP_DoorSide,1,Active,Side 1 (Loading)
+,VEL_STP_SIDE2,Side 2 (Unloading),false,Side 2 (Unloading),VEL_STP_DoorSide,2,Active,Side 2 (Unloading)
+,VEL_STP_DW320,320 mm,false,320mm Width,VEL_STP_DoorWidth,1,Active,320
+,VEL_STP_DW450,450 mm,false,450mm Width,VEL_STP_DoorWidth,2,Active,450
+,VEL_STP_DW600,600 mm,false,600mm Width,VEL_STP_DoorWidth,3,Active,600
+,VEL_STP_DW660,660 mm,false,660mm Width,VEL_STP_DoorWidth,4,Active,660
+,VEL_STP_DW700,700 mm,false,700mm Width,VEL_STP_DoorWidth,5,Active,700
+,VEL_STP_DW800,800 mm,true,800mm Width,VEL_STP_DoorWidth,6,Active,800
+,VEL_STP_DW850,850 mm,false,850mm Width,VEL_STP_DoorWidth,7,Active,850
+,VEL_STP_DW900,900 mm,false,900mm Width,VEL_STP_DoorWidth,8,Active,900
+,VEL_STP_DW1000,1000 mm,false,1000mm Width,VEL_STP_DoorWidth,9,Active,1000
+,VEL_STP_DW1200,1200 mm,false,1200mm Width,VEL_STP_DoorWidth,10,Active,1200
+,VEL_STP_DW1500,1500 mm,false,1500mm Width,VEL_STP_DoorWidth,11,Active,1500
+,VEL_STP_DH320,320 mm,false,320mm Height,VEL_STP_DoorHeight,1,Active,320
+,VEL_STP_DH450,450 mm,false,450mm Height,VEL_STP_DoorHeight,2,Active,450
+,VEL_STP_DH660,660 mm,false,660mm Height,VEL_STP_DoorHeight,3,Active,660
+,VEL_STP_DH800,800 mm,false,800mm Height,VEL_STP_DoorHeight,4,Active,800
+,VEL_STP_DH950,950 mm,false,950mm Height,VEL_STP_DoorHeight,5,Active,950
+,VEL_STP_DH1000,1000 mm,true,1000mm Height,VEL_STP_DoorHeight,6,Active,1000
+,VEL_STP_DH1200,1200 mm,false,1200mm Height,VEL_STP_DoorHeight,7,Active,1200
+,VEL_STP_DH1500,1500 mm,false,1500mm Height,VEL_STP_DoorHeight,8,Active,1500
+,VEL_STP_DH2000,2000 mm,false,2000mm Height,VEL_STP_DoorHeight,9,Active,2000
+,VEL_PKGCFG_STD,Standard,true,Standard,VEL_PackagingConfig,1,Active,Standard
+,VEL_PKGCFG_INT,Integrated,false,Integrated,VEL_PackagingConfig,2,Active,Integrated
+,VEL_PKGCFG_SA,StandAlone,false,StandAlone,VEL_PackagingConfig,3,Active,StandAlone
+,VEL_COMP_STD,Standard,true,Standard,VEL_Compliance,1,Active,Standard
+,VEL_COMP_GMP,GMP_Plus,false,GMP_Plus,VEL_Compliance,2,Active,GMP_Plus
+,VEL_COMP_FDA,FDA_21_CFR,false,FDA_21_CFR,VEL_Compliance,3,Active,FDA_21_CFR
+,VEL_SIZE_NONE,none,true,none,VEL_MachineSize,0,Active,none
+,VEL_SIZE_1530,1530,false,1530,VEL_MachineSize,1,Active,1530
+,VEL_SIZE_2040,2040,false,2040,VEL_MachineSize,2,Active,2040
+,VEL_SIZE_2060,2060,false,2060,VEL_MachineSize,3,Active,2060
+,VEL_PWR_NONE,none,true,none,VEL_LaserPower,0,Active,none
+,VEL_PWR_4KW,Standard (4 kW),false,Standard (4 kW),VEL_LaserPower,1,Active,Standard (4 kW)
+,VEL_PWR_10KW,High (10 kW),false,High (10 kW),VEL_LaserPower,2,Active,High (10 kW)
+,VEL_PWR_15KW,Ultra (15 kW),false,Ultra (15 kW),VEL_LaserPower,3,Active,Ultra (15 kW)

@@ -1,0 +1,19 @@
+$$ProductClassification.Code$AttributeDefinition.Code,AttributeCategory.Code,AttributeDefinition.Code,ProductClassification.Code,AttributeNameOverride,DefaultValue,Description,DisplayType,HelpText,IsHidden,IsPriceImpacting,IsReadOnly,IsRequired,MaximumCharacterCount,MaximumValue,MinimumCharacterCount,MinimumValue,Name,Sequence,Status,StepValue,UnitOfMeasure.UnitCode,ValueDescription
+VEL_PKG_BDL;ATTR-VEL-PKG-CFG,VEL_PKG_SPECS,ATTR-VEL-PKG-CFG,VEL_PKG_BDL,,Standard,,Picklist,,false,false,false,true,,,,,VEL_PKG_BDL ATTR-VEL-PKG-CFG,10,Active,,,
+VEL_PKG_BDL;ATTR-VEL-COMPLIANCE,VEL_PKG_SPECS,ATTR-VEL-COMPLIANCE,VEL_PKG_BDL,,Standard,,Picklist,,false,false,false,true,,,,,VEL_PKG_BDL ATTR-VEL-COMPLIANCE,20,Active,,,
+VEL_PKG_BDL;ATTR-VEL-CAPACITY,VEL_PKG_SPECS,ATTR-VEL-CAPACITY,VEL_PKG_BDL,,23400000,,Text,,false,false,true,false,,,,,VEL_PKG_BDL ATTR-VEL-CAPACITY,30,Active,,,blisters/yr
+VEL_LSR_BDL;ATTR-VEL-SIZE,VEL_LSR_SPECS,ATTR-VEL-SIZE,VEL_LSR_BDL,,1530,,Picklist,,false,false,false,true,,,,,VEL_LSR_BDL ATTR-VEL-SIZE,10,Active,,,
+VEL_LSR_BDL;ATTR-VEL-POWER,VEL_LSR_SPECS,ATTR-VEL-POWER,VEL_LSR_BDL,,Standard (4 kW),,Picklist,,false,false,false,true,,,,,VEL_LSR_BDL ATTR-VEL-POWER,20,Active,,,
+VEL_STP_BDL;ATTR-VEL-STP-WIDTH,VEL_STP_SPECS,ATTR-VEL-STP-WIDTH,VEL_STP_BDL,,800mm Width,,Picklist,,false,false,false,true,,,,,VEL_STP_BDL Chamber Width,10,Active,,,
+VEL_STP_BDL;ATTR-VEL-STP-HEIGHT,VEL_STP_SPECS,ATTR-VEL-STP-HEIGHT,VEL_STP_BDL,,800mm Height,,Picklist,,false,false,false,true,,,,,VEL_STP_BDL Chamber Height,20,Active,,,
+VEL_STP_BDL;ATTR-VEL-STP-DEPTH,VEL_STP_SPECS,ATTR-VEL-STP-DEPTH,VEL_STP_BDL,,1000mm Depth,,Picklist,,false,false,false,true,,,,,VEL_STP_BDL Chamber Depth,30,Active,,,
+VEL_STP_BDL;ATTR-VEL-STP-SECTION,VEL_STP_SPECS,ATTR-VEL-STP-SECTION,VEL_STP_BDL,,Square,,Picklist,,false,false,false,false,,,,,VEL_STP_BDL Chamber Section,40,Active,,,
+VEL_STP_BDL;ATTR-VEL-STP-VOLUME,VEL_STP_SPECS,ATTR-VEL-STP-VOLUME,VEL_STP_BDL,,,,Text,,false,false,false,false,,,,,VEL_STP_BDL Chamber Volume,50,Active,,,L
+VEL_STP_BDL;ATTR-VEL-STP-POWER,VEL_STP_PROC_PARAMS,ATTR-VEL-STP-POWER,VEL_STP_BDL,,400V 3-phase 50Hz (EU/INT),,Picklist,,false,false,false,true,,,,,VEL_STP_BDL Power Supply,60,Active,,,
+VEL_STP_BDL;ATTR-VEL-STP-COMP,VEL_STP_PROC_PARAMS,ATTR-VEL-STP-COMP,VEL_STP_BDL,,PED 2014/68/EU,,Picklist,,false,false,false,false,,,,,VEL_STP_BDL Compliance Standard,70,Active,,,
+VEL_STP_BDL;ATTR-VEL-STP-TEMP,VEL_STP_PROC_PARAMS,ATTR-VEL-STP-TEMP,VEL_STP_BDL,,121°C / 134°C,,Text,,false,false,false,false,,,,,VEL_STP_BDL Sterilization Temperature,80,Active,,,
+VEL_STP_DOOR_CLASS;ATTR-VEL-STP-DOOR-TYPE,VEL_STP_DOOR_CFG,ATTR-VEL-STP-DOOR-TYPE,VEL_STP_DOOR_CLASS,,Motorized Horizontal,,Picklist,,false,false,false,true,,,,,VEL_STP_DOOR_CLASS Door Type,10,Active,,,
+VEL_STP_DOOR_CLASS;ATTR-VEL-STP-DW,VEL_STP_DOOR_CFG,ATTR-VEL-STP-DW,VEL_STP_DOOR_CLASS,,,,Picklist,,false,false,false,true,,,,,VEL_STP_DOOR_CLASS Door Width,20,Active,,,
+VEL_STP_DOOR_CLASS;ATTR-VEL-STP-DH,VEL_STP_DOOR_CFG,ATTR-VEL-STP-DH,VEL_STP_DOOR_CLASS,,,,Picklist,,false,false,false,true,,,,,VEL_STP_DOOR_CLASS Door Height,30,Active,,,
+VEL_STP_DOOR_CLASS;ATTR-VEL-STP-DOOR-SIDE,VEL_STP_DOOR_CFG,ATTR-VEL-STP-DOOR-SIDE,VEL_STP_DOOR_CLASS,,Side 1 (Loading),,Picklist,,false,false,false,true,,,,,VEL_STP_DOOR_CLASS Installation Side,40,Active,,,
+VEL_STP_BDL;ATTR-VEL-STP-NUM-DOORS,VEL_STP_PROC_PARAMS,ATTR-VEL-STP-NUM-DOORS,VEL_STP_BDL,,Single Door,,Picklist,,false,false,false,false,,,,,VEL_STP_BDL STP Door Configuration,85,Active,,,

@@ -1,0 +1,62 @@
+:host {
+    display: block;
+}
+
+/* ── Margin threshold badges (LDS2 semantic tokens with fallback hex) ── */
+.vel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.5;
+}
+
+/* >= 30 % — healthy */
+.vel-badge-green {
+    background-color: var(--slds-g-color-feedback-success-container, #d1fae5);
+    color: var(--slds-g-color-feedback-success-on-container, #065f46);
+}
+
+/* 15 % – 29 % — caution */
+.vel-badge-amber {
+    background-color: var(--slds-g-color-feedback-warning-container, #fef3c7);
+    color: var(--slds-g-color-feedback-warning-on-container, #92400e);
+}
+
+/* 0 % – 14 % — low margin */
+.vel-badge-red {
+    background-color: var(--slds-g-color-feedback-error-container, #fee2e2);
+    color: var(--slds-g-color-feedback-error-on-container, #991b1b);
+}
+
+/* < 0 % — selling below cost */
+.vel-badge-negative {
+    background-color: var(--slds-g-color-feedback-error-base, #ea0000);
+    color: var(--slds-g-color-neutral-base-100, #ffffff);
+}
+
+/* No cost entry in cost book */
+.vel-badge-na {
+    background-color: var(--slds-g-color-neutral-container-medium, #f3f3f3);
+    color: var(--slds-g-color-neutral-on-container, #706e6b);
+}
+
+/* ── Table layout ── */
+.vel-col-narrow  { width: 4rem; }
+.vel-col-number  { width: 8rem; }
+.vel-col-badge   { width: 8rem; }
+
+.vel-sku {
+    display: block;
+    font-size: 0.7rem;
+}
+
+/* ── Totals footer row ── */
+.vel-totals-row td {
+    border-top: 2px solid var(--slds-g-color-border-base-2, #dddbda);
+    background-color: var(--slds-g-color-neutral-container-low, #fafaf9);
+}

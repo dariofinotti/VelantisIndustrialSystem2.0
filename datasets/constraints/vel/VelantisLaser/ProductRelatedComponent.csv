@@ -1,0 +1,13 @@
+Id,Name,ParentProductId,ParentProduct.Name,ChildProductId,ChildProduct.Name,ChildProductClassificationId,ChildProductClassification.Name,ProductRelationshipTypeId,ProductRelationshipType.Name,Sequence
+0dSg7000000DxlcEAC,PRC-000000485,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnag6AAA,PrecisionBeam+ 1530 Machine Frame,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000DxldEAC,PRC-000000486,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnag7AAA,PrecisionBeam+ 2040 Machine Frame,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,20
+0dSg7000000DxleEAC,PRC-000000487,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnag8AAA,PrecisionBeam+ 2060 Machine Frame,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,30
+0dSg7000000DxlfEAC,PRC-000000488,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnag9AAA,4 kW Fiber Laser Source Module,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000DxlgEAC,PRC-000000489,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagAAAQ,10 kW Fiber Laser Source Module,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,20
+0dSg7000000DxlhEAC,PRC-000000490,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagBAAQ,15 kW Fiber Laser Source Module,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,30
+0dSg7000000DxliEAC,PRC-000000491,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagCAAQ,Compact Server Automation Module,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000DxljEAC,PRC-000000492,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagDAAQ,Nitrogen Assist Gas Subscription,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000DxlnEAC,PRC-000000496,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagHAAQ,PrecisionCut CAD/CAM Software,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000Dxn7EAC,PRC-000000501,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagEAAQ,Installation Service,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000Dxn8EAC,PRC-000000502,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagFAAQ,Maintenance Plan,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,20
+0dSg7000000Dxn9EAC,PRC-000000503,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagGAAQ,Extended Warranty,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,30

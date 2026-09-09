@@ -1,0 +1,5 @@
+Catalog.Code,Code,Description,IsNavigational,Name,ParentCategory.Code,SortOrder
+VEL,VEL_CAT_PKG,Packaging automation systems for pharmaceutical manufacturing,true,Packaging Systems,,10
+VEL,VEL_CAT_LSR,Fiber laser cutting systems for sheet metal fabrication,true,Laser Cutting Systems,,20
+VEL,VEL_CAT_SVC,Professional services and software solutions,true,Services & Software,,30
+VEL,VEL_CAT_STP,Saturated steam sterilization systems for bio-pharma industries,true,Steam Processing Equipment,,40

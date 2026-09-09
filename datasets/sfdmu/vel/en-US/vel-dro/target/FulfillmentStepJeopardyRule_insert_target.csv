@@ -1,0 +1,6 @@
+﻿"Id","EstimatedDuration","EstimatedDurationUnit","FlowDefinition","JeopardyThreshold","JeopardyThresholdUnit","StepType","Errors"
+"1Amg7000000CakTCAS","5","Days","#N/A","4","Days","ManualTask","#N/A"
+"1Amg7000000CakUCAS","2","Days","#N/A","1","Days","ManualTask","#N/A"
+"1Amg7000000CakVCAS","3","Days","#N/A","2","Days","ManualTask","#N/A"
+"1Amg7000000CakWCAS","2","Days","#N/A","1","Days","ManualTask","#N/A"
+"1Amg7000000CakXCAS","1","Days","#N/A","4","Hours","ManualTask","#N/A"

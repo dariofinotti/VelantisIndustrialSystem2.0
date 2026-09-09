@@ -1,0 +1,20 @@
+# CumulusCI
+.cci/
+.cumulusci/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# SFDMU runtime output
+**/reports/
+**/source/
+
+# macOS
+.DS_Store
+
+# Editor
+.cursor/
+.vscode/
