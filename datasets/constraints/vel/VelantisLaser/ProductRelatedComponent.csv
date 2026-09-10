@@ -8,6 +8,6 @@ Id,Name,ParentProductId,ParentProduct.Name,ChildProductId,ChildProduct.Name,Chil
 0dSg7000000DxliEAC,PRC-000000491,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagCAAQ,Compact Server Automation Module,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
 0dSg7000000DxljEAC,PRC-000000492,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagDAAQ,Nitrogen Assist Gas Subscription,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
 0dSg7000000DxlnEAC,PRC-000000496,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagHAAQ,PrecisionCut CAD/CAM Software,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
-0dSg7000000Dxn7EAC,PRC-000000501,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagEAAQ,Installation Service,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
-0dSg7000000Dxn8EAC,PRC-000000502,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagFAAQ,Maintenance Plan,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,20
-0dSg7000000Dxn9EAC,PRC-000000503,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagGAAQ,Extended Warranty,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,30
+0dSg7000000Dxn7EAC,PRC-000000501,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagEAAQ,PrecisionBeam+ Installation Service,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,10
+0dSg7000000Dxn8EAC,PRC-000000502,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagFAAQ,PrecisionBeam+ Maintenance Plan,,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,20
+0dSg7000000Dxn9EAC,PRC-000000503,01tg700000hnag5AAA,PrecisionBeam+ Laser Cutting System,01tg700000hnagGAAQ,Extended Warranty (PrecisionBeam+),,,0yog70000005yjVAAQ,Bundle to Bundle Component Relationship,30

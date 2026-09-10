@@ -142,6 +142,20 @@ type PrecisionBeamLaserCuttingSystem : LineItem {
 
 }
 
+@(virtual = true)
+type Quote {
+    @(sourceContextNode = "SalesTransaction.SalesTransactionItem")
+    relation lineItems : PrecisionBeamLaserCuttingSystem[0..10];
+
+    rule(
+        lineItems[PrecisionBeamLaserCuttingSystem] > 0,
+        "recommend",
+        "type",
+        "RemoteMonitoringPlatform",
+        "message", "Consider adding the Remote Monitoring Platform to protect your PrecisionBeam+ investment with 24/7 machine health telemetry and predictive maintenance alerts."
+    );
+}
+
 type CompactServerAutomationModule : LineItem;
 
 type PrecisionBeamExtendedWarranty : LineItem;
@@ -165,3 +179,5 @@ type PrecisionBeam2060MachineFrame : LineItem;
 type PrecisionBeam1530MachineFrame : LineItem;
 
 type PrecisionBeam2040MachineFrame : LineItem;
+
+type RemoteMonitoringPlatform : LineItem;
