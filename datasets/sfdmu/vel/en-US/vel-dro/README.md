@@ -8,6 +8,13 @@ including automated service contract creation when maintenance or extended warra
 ## Load command
 
 ```bash
+# Required before the data load. This plan only stores the flow API name on
+# FulfillmentStepDefinition. It does not deploy the Flow. Without the deploy,
+# VEL Create Service Contract is Fatally Failed (SF_DRO_STEP_API_00127).
+sf project deploy start \
+  --metadata "Flow:VEL_Maintenance_Contract_DRO_Task" \
+  --target-org <sf_alias>
+
 cci task run insert_vel_dro_data --org <alias>
 cci task run update_vel_pfdr_rules --org <alias>   # REQUIRED after first load (260/262 platform bug)
 ```

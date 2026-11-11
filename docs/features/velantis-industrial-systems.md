@@ -340,7 +340,13 @@ cci task run insert_vel_pricing_data --org <cci_alias>
 # 4. Update product display images
 cci task run insert_vel_product_image_data --org <cci_alias>
 
-# 5. Load DRO fulfillment configuration
+# 5. Deploy the DRO AutoTask flow, then load fulfillment configuration.
+#    insert_vel_dro_data does not deploy Flow metadata. Skipping the
+#    deploy leaves VEL Create Service Contract Fatally Failed
+#    (SF_DRO_STEP_API_00127). Deploy the screen flow as-is.
+sf project deploy start \
+  --metadata "Flow:VEL_Maintenance_Contract_DRO_Task" \
+  --target-org <sf_alias>
 cci task run insert_vel_dro_data --org <cci_alias>
 cci task run update_vel_pfdr_rules --org <cci_alias>
 

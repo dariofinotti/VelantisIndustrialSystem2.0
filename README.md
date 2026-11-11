@@ -120,7 +120,10 @@ sf project deploy start \
   --metadata "LightningExperienceTheme:VELTheme,BrandingSet:LEXTHEMINGVelantis,ContentAsset:VEL_logo_rectangle" \
   --target-org $SF_ALIAS
 
-# DRO orchestration flow
+# DRO orchestration flow — required. Do not skip.
+# insert_vel_dro_data only stores the flow API name on the step definition.
+# It does not deploy this Flow. Without it, VEL Create Service Contract
+# goes Fatally Failed (SF_DRO_STEP_API_00127: no active flow version).
 sf project deploy start \
   --metadata "Flow:VEL_Maintenance_Contract_DRO_Task" \
   --target-org $SF_ALIAS
@@ -223,11 +226,17 @@ Updates `Product2.DisplayUrl` for all 27 saleable products to point to their `/r
 
 ### Step 10 — Load DRO Configuration
 
+Deploy the maintenance-contract flow **before** loading DRO data. The AutoTask step `VEL Create Service Contract` calls `VEL_Maintenance_Contract_DRO_Task`. The SFDMU plan writes that API name onto `FulfillmentStepDefinition.FlowDefinitionName` and does not deploy the Flow itself. If this command was skipped, the step is created and then **Fatally Failed** with `SF_DRO_STEP_API_00127` (no active version of the flow). Re-run the deploy on an existing org; it is safe when the flow is already there.
+
 ```bash
+sf project deploy start \
+  --metadata "Flow:VEL_Maintenance_Contract_DRO_Task" \
+  --target-org $SF_ALIAS
+
 SF_TEMP_SHOW_SECRETS=true cci task run insert_vel_dro_data --org $CCI_ALIAS
 ```
 
-Loads: `ProductFulfillmentScenario` (5), `FulfillmentStepDefinitionGroup` (5), `FulfillmentStepDefinition` (13), `FulfillmentStepDependencyDef` (12), `FulfillmentWorkspace`, `FulfillmentWorkspaceItem` (13), `FulfillmentTaskAssignmentRule` (10), `FulfillmentFalloutRule` (4), `FulfillmentStepJeopardyRule` (3), `ProductFulfillmentDecompRule` (15).
+Loads: `ProductFulfillmentScenario` (5), `FulfillmentStepDefinitionGroup` (5), `FulfillmentStepDefinition` (13), `FulfillmentStepDependencyDef` (12), `FulfillmentWorkspace`, `FulfillmentWorkspaceItem` (13), `FulfillmentTaskAssignmentRule` (10), `FulfillmentFalloutRule` (4), `FulfillmentStepJeopardyRule` (3), `ProductFulfillmentDecompRule` (15). The flow file is `force-app/main/default/flows/VEL_Maintenance_Contract_DRO_Task.flow-meta.xml` (`<status>Active</status>`). Deploy it as-is; do not convert it to an autolaunched flow.
 
 ---
 
@@ -297,6 +306,7 @@ After all steps complete, verify in the org:
 - [ ] **Theme** — Lightning header shows Velantis navy branding and logo
 - [ ] **Pricing** — VELPACK G1 bundle has USD One-Time price; software products show Evergreen Monthly pricing
 - [ ] **DRO** — create a test order containing VEL-LSR-BDL; confirm fulfillment decomposition rules fire
+- [ ] **DRO flow** — Setup → Flows → `VEL_Maintenance_Contract_DRO_Task` is Active. A maintenance order must not leave `VEL Create Service Contract` in Fatally Failed with `SF_DRO_STEP_API_00127`
 - [ ] **Margin Analysis** — open a Quote record with Velantis products; the **Margin Analysis** tab shows per-line cost, margin $, margin % with colour-coded badges and a quote-total row
 
 ---
@@ -312,6 +322,7 @@ After all steps complete, verify in the org:
 | Pricing insert fails with duplicate key | Run `delete_vel_pricing_data` first, then re-run Step 8 |
 | SFDMU error `INVALID_AUTH_HEADER` | Re-authenticate: `sf org login web --alias $SF_ALIAS`, then re-run with `SF_TEMP_SHOW_SECRETS=true` |
 | DRO rules not triggering | Run Step 11 (`update_vel_pfdr_rules.apex`) — PFDR records need a re-save post-insert |
+| `VEL Create Service Contract` is Fatally Failed, `SF_DRO_STEP_API_00127`, flow `VEL_Maintenance_Contract_DRO_Task` not found | The DRO data load does not deploy Flow metadata. Run the Step 10 flow deploy (`sf project deploy start --metadata "Flow:VEL_Maintenance_Contract_DRO_Task"`). Existing failed steps stay failed until the fulfillment step is retried |
 | Image upload fails (413 / request too large) | Deploy static resources in smaller batches by prefix (`VEL_CUT_*`, `VEL_LSR_*`, etc.) |
 | Margin Analysis tab shows no data | Confirm Step 8 ran (CostBookEntry records needed); check Apex debug for `VelQuoteMarginController` |
 
