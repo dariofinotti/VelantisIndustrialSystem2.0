@@ -125,6 +125,20 @@
             <targetReference>For_each_quote_line_entitlement</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Fault_Logging_Failed</name>
+        <label>Fault Logging Failed</label>
+        <description>Terminal no-op: the failure Task could not be created either, so the flow ends here.</description>
+        <locationX>704</locationX>
+        <locationY>1100</locationY>
+        <assignmentItems>
+            <assignToReference>FaultNote</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
     <environments>Default</environments>
     <formulas>
         <name>ServiceContractNameFormula</name>
@@ -171,6 +185,9 @@
         <label>Create Contract Line Item</label>
         <locationX>176</locationX>
         <locationY>1964</locationY>
+        <faultConnector>
+            <targetReference>Log_Failure</targetReference>
+        </faultConnector>
         <inputReference>ContractLineVar</inputReference>
     </recordCreates>
     <recordCreates>
@@ -181,6 +198,9 @@
         <connector>
             <targetReference>Create_Contract_Line_Item</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Log_Failure</targetReference>
+        </faultConnector>
         <inputReference>EntitlementCollection</inputReference>
     </recordCreates>
     <recordCreates>
@@ -191,6 +211,9 @@
         <connector>
             <targetReference>For_each_quote_line_entitlement</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Log_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>AccountId</field>
             <value>
@@ -288,6 +311,48 @@
             </value>
         </inputAssignments>
         <object>ServiceContract</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Log_Failure</name>
+        <label>Log Failure</label>
+        <description>Fault path: records the original error as a Task on the Order, then the flow ends normally.</description>
+        <locationX>440</locationX>
+        <locationY>1100</locationY>
+        <faultConnector>
+            <targetReference>Fault_Logging_Failed</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <stringValue>VEL: Maintenance service contract creation FAILED - review error</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>planSourceIdentifierId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
@@ -456,6 +521,13 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>FaultNote</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>ContractLineVar</name>
         <dataType>SObject</dataType>
