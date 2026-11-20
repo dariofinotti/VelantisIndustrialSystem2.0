@@ -87,9 +87,9 @@
           "excluded": false
         },
         {
-          "query": "SELECT EstimatedDuration, EstimatedDurationUnit, FlowDefinition, Id, StepType, JeopardyThreshold, JeopardyThresholdUnit, Name, IntegrationDefinition.DeveloperName FROM FulfillmentStepJeopardyRule WHERE Name LIKE 'VEL-%'",
-          "operation": "Upsert",
-          "externalId": "Name",
+          "query": "SELECT EstimatedDuration, EstimatedDurationUnit, FlowDefinition, Id, StepType, JeopardyThreshold, JeopardyThresholdUnit, Name, IntegrationDefinition.DeveloperName FROM FulfillmentStepJeopardyRule WHERE StepType='ManualTask' AND EstimatedDurationUnit='Days' AND ((EstimatedDuration=5 AND JeopardyThreshold=4 AND JeopardyThresholdUnit='Days') OR (EstimatedDuration=2 AND JeopardyThreshold=1 AND JeopardyThresholdUnit='Days') OR (EstimatedDuration=3 AND JeopardyThreshold=2 AND JeopardyThresholdUnit='Days') OR (EstimatedDuration=1 AND JeopardyThreshold=4 AND JeopardyThresholdUnit='Hours'))",
+          "operation": "Insert",
+          "deleteOldData": true,
           "restful": true,
           "excluded": false
         },

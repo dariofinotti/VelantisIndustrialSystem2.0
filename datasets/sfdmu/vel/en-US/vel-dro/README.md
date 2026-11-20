@@ -10,9 +10,13 @@ including automated service contract creation when maintenance or extended warra
 ```bash
 # Required before the data load. This plan only stores the flow API name on
 # FulfillmentStepDefinition. It does not deploy the Flow. Without the deploy,
-# VEL Create Service Contract is Fatally Failed (SF_DRO_STEP_API_00127).
+# the AutoTask steps are Fatally Failed (SF_DRO_STEP_API_00127).
+# All four AutoTask flows must be deployed:
 sf project deploy start \
   --metadata "Flow:VEL_Maintenance_Contract_DRO_Task" \
+  --metadata "Flow:VEL_Post_Advance_Invoice_DRO_Task" \
+  --metadata "Flow:VEL_Register_Warranty_DRO_Task" \
+  --metadata "Flow:VEL_Activate_Software_License_DRO_Task" \
   --target-org <sf_alias>
 
 cci task run insert_vel_dro_data --org <alias>
@@ -29,13 +33,13 @@ record via UI or Apex to populate `ScenarioRuleId` (known 260/262 bug — INSERT
 | `Product2` | Upsert | 25 | `StockKeepingUnit` — 19 source products stamped + 6 VEL-DRO-* routing stubs (incl. VEL-DRO-MAINT + 2 warranty SKUs) |
 | `ProductFulfillmentDecompRule` | Upsert | 32 | `Name` — maps source SKUs to DRO routing products; includes 7 maintenance/warranty → VEL-DRO-MAINT rules |
 | `FulfillmentStepDefinitionGroup` | Upsert | 6 | `Name` — Finance, Mfg & QC, Logistics, Install, Service Activation, **Maintenance & Warranty** |
-| `FulfillmentStepDefinition` | Upsert | 14 | `Name` — 11 ManualTask + 2 Milestone + **1 AutoTask** (VEL Create Service Contract) |
-| `FulfillmentStepDependencyDef` | Upsert | 14 | `Name` — includes 6 cross-group dependencies (new: Commission → Svc Contract) |
+| `FulfillmentStepDefinition` | Upsert | 14 | `Name` — 9 ManualTask + 1 Milestone + **4 AutoTask** (VEL Post Advance Invoice, VEL Register Warranty, VEL Activate Software License, VEL Create Service Contract) |
+| `FulfillmentStepDependencyDef` | Upsert | 15 | `Name` — includes 6 cross-group dependencies (new: Commission → Svc Contract) |
 | `ProductFulfillmentScenario` | Upsert | 6 | `Name` — one per DRO routing product (new: VEL-DRO-MAINT) |
 | `FulfillmentWorkspace` | Upsert | 1 | `Name` — "Velantis Machine Fulfillment" |
 | `FulfillmentWorkspaceItem` | Upsert + deleteOldData | 6 | deleteOldData scoped to Velantis workspace only — clears stale items then re-inserts; matches QB pattern |
 | `FulfillmentFalloutRule` | Upsert | 0 | Header only |
-| `FulfillmentStepJeopardyRule` | Upsert | 5 | `Name` — placeholder names (update after first deploy) |
+| `FulfillmentStepJeopardyRule` | Insert + deleteOldData | 5 | `Name` is auto-number, so Upsert can never match. `deleteOldData` is scoped by the VEL duration/threshold values (not by Name), so rules from other plans are untouched |
 | `FulfillmentTaskAssignmentRule` | Upsert | 0 | Header only — autotask is flow-driven, no assignment rule needed |
 | `User` | ReadOnly | — | AssignedTo placeholder resolution |
 | `Group` | ReadOnly | — | Queue reference |
@@ -112,7 +116,7 @@ the PCM catalog (`vel-pcm`) but had no prior DRO configuration. They are now add
 
 ## Cross-group dependencies
 
-14 `FulfillmentStepDependencyDef` records wire the end-to-end flow across groups:
+15 `FulfillmentStepDependencyDef` records wire the end-to-end flow across groups:
 
 | Depends On (upstream) | Triggers (downstream) | Connection Name |
 |-----------------------|-----------------------|-----------------|
@@ -142,4 +146,4 @@ the PCM catalog (`vel-pcm`) but had no prior DRO configuration. They are now add
 
 1. **`ExecuteOnRuleId` not generated on INSERT** (platform bug 260/262): Run `update_vel_pfdr_rules` after first load.
 2. **`ScenarioRuleId` not generated on INSERT** (platform bug 260/262): After the first load, re-save the `VEL Maintenance Contract Service` `ProductFulfillmentScenario` record via the UI or Apex to populate `ScenarioRuleId`.
-3. **`FulfillmentStepJeopardyRule.Name` is auto-numbered**: The placeholder names (VEL-FSJR-001 through 005) will be replaced by platform-assigned auto-numbered names on insert. After the first deploy, query the records and update the CSV names to the platform-assigned values for idempotency on subsequent runs.
+3. **`FulfillmentStepJeopardyRule.Name` is auto-numbered**: `VEL-FSJR-001..005` in the CSV are labels only; the platform assigns `000000NNN`. Because Upsert can never match, the plan uses `Insert` + `deleteOldData` with a query scoped to the five VEL duration/threshold combinations, so reloads stay at exactly 5 VEL rules. If you change the CSV values, update the `WHERE` in `export.json` to match.
