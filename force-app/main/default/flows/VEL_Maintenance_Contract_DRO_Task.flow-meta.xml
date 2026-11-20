@@ -83,7 +83,7 @@
             <assignToReference>EntitlementVar.Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>For_each_quote_line_entitlement.Product2.Name</elementReference>
+                <elementReference>For_each_quote_line_entitlement.RLM_ProductName__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -129,7 +129,7 @@
     <formulas>
         <name>ServiceContractNameFormula</name>
         <dataType>String</dataType>
-        <expression>{!get_Maint_Warranty_QL.Product2.Name}+&quot; Service Contract&quot;</expression>
+        <expression>{!get_Maint_Warranty_QL.RLM_ProductName__c}+&quot; Service Contract&quot;</expression>
     </formulas>
     <interviewLabel>VEL - Create Maintenance Service Contract - DRO Task {!$Flow.CurrentDateTime}</interviewLabel>
     <label>VEL - Create Maintenance Service Contract - DRO Task</label>
@@ -165,7 +165,7 @@
             <stringValue>LightningFlowBuilder</stringValue>
         </value>
     </processMetadataValues>
-    <processType>Flow</processType>
+    <processType>AutoLaunchedFlow</processType>
     <recordCreates>
         <name>Create_Contract_Line_Item</name>
         <label>Create Contract Line Item</label>
@@ -234,21 +234,15 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>Description</field>
-            <value>
-                <elementReference>Description</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>EndDate</field>
             <value>
-                <elementReference>End_Date</elementReference>
+                <elementReference>get_Maint_Warranty_QL.EndDate</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>Service_Contract_Name</elementReference>
+                <elementReference>ServiceContractNameFormula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -290,7 +284,7 @@
         <inputAssignments>
             <field>StartDate</field>
             <value>
-                <elementReference>Start_Date</elementReference>
+                <elementReference>get_Maint_Warranty_QL.StartDate</elementReference>
             </value>
         </inputAssignments>
         <object>ServiceContract</object>
@@ -345,7 +339,7 @@
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Service_Contract_Details</targetReference>
+            <targetReference>Create_Service_Contract</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -371,6 +365,7 @@
         <queriedFields>EndDate</queriedFields>
         <queriedFields>Quantity</queriedFields>
         <queriedFields>Product2Id</queriedFields>
+        <queriedFields>RLM_ProductName__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -382,19 +377,26 @@
         <connector>
             <targetReference>get_Maint_Warranty_PB_Entry</targetReference>
         </connector>
-        <filterLogic>1 OR 2</filterLogic>
+        <filterLogic>(1 OR 2) AND 3</filterLogic>
         <filters>
-            <field>Product2.Name</field>
+            <field>RLM_ProductName__c</field>
             <operator>Contains</operator>
             <value>
                 <stringValue>Maintenance</stringValue>
             </value>
         </filters>
         <filters>
-            <field>Product2.Name</field>
+            <field>RLM_ProductName__c</field>
             <operator>Contains</operator>
             <value>
                 <stringValue>Warranty</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>QuoteId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>get_Quote_Details.Id</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -408,7 +410,7 @@
         <queriedFields>NetUnitPrice</queriedFields>
         <queriedFields>Product2Id</queriedFields>
         <queriedFields>ProductSellingModelId</queriedFields>
-        <queriedFields>Product2.Name</queriedFields>
+        <queriedFields>RLM_ProductName__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -446,61 +448,6 @@
         <object>PricebookEntry</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <screens>
-        <name>Service_Contract_Details</name>
-        <label>Service Contract Details</label>
-        <locationX>176</locationX>
-        <locationY>674</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <connector>
-            <targetReference>Create_Service_Contract</targetReference>
-        </connector>
-        <fields>
-            <name>Service_Contract_Name</name>
-            <dataType>String</dataType>
-            <defaultValue>
-                <elementReference>ServiceContractNameFormula</elementReference>
-            </defaultValue>
-            <fieldText>Service Contract Name</fieldText>
-            <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-        </fields>
-        <fields>
-            <name>Start_Date</name>
-            <dataType>Date</dataType>
-            <defaultValue>
-                <elementReference>get_Maint_Warranty_QL.StartDate</elementReference>
-            </defaultValue>
-            <fieldText>Start Date</fieldText>
-            <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-        </fields>
-        <fields>
-            <name>End_Date</name>
-            <dataType>Date</dataType>
-            <defaultValue>
-                <elementReference>get_Maint_Warranty_QL.EndDate</elementReference>
-            </defaultValue>
-            <fieldText>End Date</fieldText>
-            <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-        </fields>
-        <fields>
-            <name>Description</name>
-            <dataType>String</dataType>
-            <fieldText>Description</fieldText>
-            <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
