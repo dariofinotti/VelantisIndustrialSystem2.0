@@ -1,0 +1,48 @@
+{
+  "appPageId" : "171edac4-6a94-40f7-8ca1-485d4c340840",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "90782890-e7d7-4f05-945a-fa656040c0d0",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"padding:32px 0;\"><p style=\"font-size:28px;font-weight:700;color:#1A2B4A;margin-bottom:6px;\">Where would you like to go?</p><p style=\"font-size:16px;color:#4A5875;margin-bottom:24px;\">Manage your customers, deals and quotes in one place.</p><div style=\"display:flex;flex-wrap:wrap;gap:24px;\"><a href=\"/DFBYOPartner/s/recordlist/Account/Default\" style=\"display:block;flex:1 1 260px;min-width:240px;padding:28px 24px;background:#FFFFFF;border-top:4px solid #1A2B4A;border-radius:4px;box-shadow:0 2px 8px rgba(26,43,74,0.12);text-decoration:none;\"><span style=\"display:block;font-size:22px;font-weight:700;color:#1A2B4A;margin-bottom:8px;\">Accounts</span><span style=\"display:block;font-size:15px;color:#4A5875;\">View and manage your customer accounts.</span><span style=\"display:block;font-size:14px;font-weight:700;color:#2D5BBE;margin-top:16px;\">Open &rarr;</span></a><a href=\"/DFBYOPartner/s/recordlist/Opportunity/Default\" style=\"display:block;flex:1 1 260px;min-width:240px;padding:28px 24px;background:#FFFFFF;border-top:4px solid #1A2B4A;border-radius:4px;box-shadow:0 2px 8px rgba(26,43,74,0.12);text-decoration:none;\"><span style=\"display:block;font-size:22px;font-weight:700;color:#1A2B4A;margin-bottom:8px;\">Opportunities</span><span style=\"display:block;font-size:15px;color:#4A5875;\">Track your open deals and pipeline.</span><span style=\"display:block;font-size:14px;font-weight:700;color:#2D5BBE;margin-top:16px;\">Open &rarr;</span></a><a href=\"/DFBYOPartner/s/quote/Quote/Default\" style=\"display:block;flex:1 1 260px;min-width:240px;padding:28px 24px;background:#FFFFFF;border-top:4px solid #1A2B4A;border-radius:4px;box-shadow:0 2px 8px rgba(26,43,74,0.12);text-decoration:none;\"><span style=\"display:block;font-size:22px;font-weight:700;color:#1A2B4A;margin-bottom:8px;\">Quotes</span><span style=\"display:block;font-size:15px;color:#4A5875;\">Review, price and follow up on quotes.</span><span style=\"display:block;font-size:14px;font-weight:700;color:#2D5BBE;margin-top:16px;\">Open &rarr;</span></a></div></div>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "197624cf-ee01-481e-a592-d7a5245a0b29",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "46725806-f3fa-42c9-89c1-fa2a0a9efd27",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "3a94a00c-cdf8-48db-a37e-f80f05a269c0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "8cbd4e61-48a3-4297-846a-7d80ee65aebb",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "bd030d7c-1333-458a-931a-5e8921d7038b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dbba818d-8d14-4ff7-8d87-faeb95a133a3",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Home",
+  "type" : "view",
+  "viewType" : "home"
+}

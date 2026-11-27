@@ -1,0 +1,137 @@
+{
+  "appPageId" : "171edac4-6a94-40f7-8ca1-485d4c340840",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "ae48c413-18e2-4e13-9abf-a98776b19589",
+  "label" : "Quote Detail",
+  "regions" : [ {
+    "id" : "5c613c99-a78c-47be-811c-98619bddea9c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "f6fef24c-270c-4ace-b86f-557a46ceb0bd",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "49fb9fa4-1773-4b5d-a63f-24ab5444b0ec",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "46640242-2899-452e-9a63-a217a4d0494c",
+            "allowGuestUser" : true,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Quote Lines"
+          }, {
+            "UUID" : "3a4cd410-344b-43ab-83d2-c1bdbd5de44d",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "2",
+            "tabName" : "Details"
+          }, {
+            "UUID" : "2996ed5c-a978-4ec2-9f29-1a9c5fa79e72",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "3",
+            "tabName" : "Related"
+          } ],
+          "useOverflowMenu" : true
+        }
+      },
+      "componentName" : "forceCommunity:tabLayout",
+      "id" : "49fb9fa4-1773-4b5d-a63f-24ab5444b0ec",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "displayFields" : "[QuoteLineItem.Product2.Name[Product2],QuoteLineItem.Quantity,QuoteLineItem.ListPrice,QuoteLineItem.PartnerDiscountPercent,QuoteLineItem.PartnerUnitPrice,QuoteLineItem.NetUnitPrice,QuoteLineItem.NetTotalPrice]",
+            "enableQuickAdd" : true,
+            "enableSidepanel" : true,
+            "objectApiName" : "Quote",
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "runtime_rca:salesTxnLineTable",
+          "id" : "e07fc7c7-07a6-4fdf-b54f-42e236073adb",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "46640242-2899-452e-9a63-a217a4d0494c",
+        "regionLabel" : "Quote Lines",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "forceCommunity:recordDetail",
+          "id" : "ad089e29-3aee-4b12-a49a-f74ab7c4f909",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "3a4cd410-344b-43ab-83d2-c1bdbd5de44d",
+        "regionLabel" : "Details",
+        "regionName" : "2",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "recordId" : "{!recordId}",
+            "width" : "MEDIUM"
+          },
+          "componentName" : "forceCommunity:relatedRecords",
+          "id" : "84f6173c-5c5d-48a9-a2df-6d519ac9dcaa",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "2996ed5c-a978-4ec2-9f29-1a9c5fa79e72",
+        "regionLabel" : "Related",
+        "regionName" : "3",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2e0b2297-33fd-4bd9-8310-94bb54036a4a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b7468330-1577-46e6-8a36-48dac4cdb35c",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "228bd496-a857-4792-b9e3-8abdcdd561d7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d5c9723e-09b0-44b9-bf4b-46d1e4303a75",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-0Q0"
+}
