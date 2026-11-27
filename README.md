@@ -40,6 +40,12 @@ force-app/main/default/
 unpackaged/post_ux/flexipages/
   RLM_Quote_Record_Page.flexipage-meta.xml       — Pre-assembled Quote page with Margin Analysis tab
 
+unpackaged/post_partner_site/                    — Partner Community (Aura site DFBYOPartner)
+  experiences/DFBYOPartner1/                     — ExperienceBundle: pages, routes, theme, branding
+  networks/ sites/ navigationMenus/              — Network, CustomSite, navigation
+  staticresources/VEL_partner_*_bg.png           — Hero + compact header background images
+  contentassets/VEL_logo_transparent.*           — Velantis logo, transparent background
+
 datasets/sfdmu/vel/en-US/
   vel-pcm/          — Product catalog (52 products, attributes, component groups)
   vel-pricing/      — Pricebook entries (54 rows), cost book (47 entries), adjustments
@@ -64,6 +70,7 @@ scripts/cml/
 tasks/
   rlm_sfdmu.py     — CCI task class for SFDMU data loading
   rlm_cml.py       — CCI task class for CML import/export
+  vel_partner_site.py — CCI tasks to deploy / retrieve the Partner Community
 ```
 
 ### Margin Analysis badges
@@ -74,6 +81,50 @@ tasks/
 | 🟡 Amber | ≥ 15% and < 30% |
 | 🔴 Red | ≥ 0% and < 15% |
 | ⬛ Negative | < 0% (loss-making) |
+
+---
+
+## Partner Community (optional)
+
+Velantis-branded Aura Experience Cloud site for partners (`DFBYOPartner`): a Home page with
+tiles to Accounts, Opportunities and Quotes, an Account/Quote detail experience, a light compact
+header with the transparent Velantis logo, and a hero background. Source:
+`unpackaged/post_partner_site/`.
+
+**Prerequisites in the target org:** Digital Experiences enabled (with a My Domain), the
+Velantis data loaded (Quotes visible), and Account/Opportunity/Quote object access for the
+profiles or permission sets your partner users will use. The site name `DFBYOPartner` must not
+already belong to a different site in the target org.
+
+```bash
+# Validate only (changes nothing in the org)
+cci task run deploy_vel_partner_site --org $CCI_ALIAS -o check_only True
+
+# Deploy to the Experience Builder draft
+cci task run deploy_vel_partner_site --org $CCI_ALIAS
+
+# Deploy and publish
+cci task run deploy_vel_partner_site --org $CCI_ALIAS -o publish True
+```
+
+The repo stores placeholders instead of org-specific values, and the task renders them into a
+temporary copy at deploy time (repo files are never modified):
+
+| Placeholder | Replaced with |
+|-------------|---------------|
+| `__SITE_ADMIN_USERNAME__` | Username of the target org user running the deploy |
+| `__NETWORK_EMAIL_SENDER__` | The Network's existing sender email, or the running user's email for a new site |
+| `__QUOTE_ALL_LISTVIEW_ID__` | Id of the "All Quotes" list view in the target org (hero button link) |
+
+After changing the site in Experience Builder, publish it and bring the changes back into the repo:
+
+```bash
+cci task run retrieve_vel_partner_site --org $CCI_ALIAS   # re-applies the placeholders
+git diff unpackaged/post_partner_site
+```
+
+> Do not add `unpackaged/post_partner_site` to `sfdx-project.json` `packageDirectories`: a plain
+> `sf project deploy start` would push the unrendered placeholders. Always deploy through the CCI task.
 
 ---
 
@@ -295,6 +346,22 @@ sf project deploy start \
 
 ---
 
+### Step 15 — Deploy Partner Community (optional)
+
+Deploys the Velantis Partner Community (Aura site `DFBYOPartner`): Home page with Accounts / Opportunities / Quotes tiles, Velantis hero and compact header, transparent logo. Requires Digital Experiences enabled in the org. Run after Step 8 so partners can see Quotes. Details: see **Partner Community (optional)** in the README.
+
+```bash
+# Validate first (changes nothing)
+SF_TEMP_SHOW_SECRETS=true cci task run deploy_vel_partner_site --org $CCI_ALIAS -o check_only True
+
+# Deploy to the Experience Builder draft (add -o publish True to publish)
+SF_TEMP_SHOW_SECRETS=true cci task run deploy_vel_partner_site --org $CCI_ALIAS
+```
+
+> Always deploy through the CCI task. A plain `sf project deploy` of `unpackaged/post_partner_site` would push unrendered placeholders.
+
+---
+
 ## Verification Checklist
 
 After all steps complete, verify in the org:
@@ -308,6 +375,7 @@ After all steps complete, verify in the org:
 - [ ] **DRO** — create a test order containing VEL-LSR-BDL; confirm fulfillment decomposition rules fire
 - [ ] **DRO flow** — Setup → Flows → `VEL_Maintenance_Contract_DRO_Task` is Active. A maintenance order must not leave `VEL Create Service Contract` in Fatally Failed with `SF_DRO_STEP_API_00127`
 - [ ] **Margin Analysis** — open a Quote record with Velantis products; the **Margin Analysis** tab shows per-line cost, margin $, margin % with colour-coded badges and a quote-total row
+- [ ] **Partner Community** (if Step 15 was run) — Setup → Digital Experiences → All Sites → `DFBYOPartner`; open the Builder preview: Home shows the Velantis hero and the Accounts / Opportunities / Quotes tiles open the matching lists
 
 ---
 

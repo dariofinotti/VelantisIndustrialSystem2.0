@@ -183,3 +183,41 @@ tasks:
     options:
       cml_dir: scripts/cml
       data_dir: *vel_packaging_cml_dir
+
+  # --- Partner Community (Aura Experience Cloud site: DFBYOPartner) ---
+  deploy_vel_partner_site:
+    group: Velantis
+    description: >
+      Deploy the Velantis Partner Community (Aura site DFBYOPartner: Network, CustomSite,
+      ExperienceBundle, navigation, theme images, transparent logo) from
+      unpackaged/post_partner_site. Renders the username/email/list-view placeholders
+      into a temporary copy (repo files are never modified). Lands in the Experience
+      Builder draft; add -o publish True to publish. Use -o check_only True to validate only.
+    class_path: tasks.vel_partner_site.DeployPartnerSite
+    options:
+      path: unpackaged/post_partner_site
+      site_name: DFBYOPartner
+
+  retrieve_vel_partner_site:
+    group: Velantis
+    description: >
+      Retrieve the Velantis Partner Community from the org into
+      unpackaged/post_partner_site and re-apply the placeholders so no username,
+      email or record Id is committed. Run after editing the site in Experience Builder
+      (publish first), then review git diff.
+    class_path: tasks.vel_partner_site.RetrievePartnerSite
+    options:
+      path: unpackaged/post_partner_site
+      site_name: DFBYOPartner
+      bundle_name: DFBYOPartner1
+
+flows:
+  deploy_vel_partner_community:
+    group: Velantis
+    description: >
+      Deploy the Velantis Partner Community to the target org (draft). Run after the
+      Velantis product/pricing data is loaded so partners can see Quotes. Publish from
+      Experience Builder or run: cci task run deploy_vel_partner_site -o publish True.
+    steps:
+      1:
+        task: deploy_vel_partner_site
