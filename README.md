@@ -346,6 +346,22 @@ sf project deploy start \
 
 ---
 
+### Step 15 — Deploy Partner Community (optional)
+
+Deploys the Velantis Partner Community (Aura site `DFBYOPartner`): Home page with Accounts / Opportunities / Quotes tiles, Velantis hero and compact header, transparent logo. Requires Digital Experiences enabled in the org. Run after Step 8 so partners can see Quotes. Details: see **Partner Community (optional)** in the README.
+
+```bash
+# Validate first (changes nothing)
+SF_TEMP_SHOW_SECRETS=true cci task run deploy_vel_partner_site --org $CCI_ALIAS -o check_only True
+
+# Deploy to the Experience Builder draft (add -o publish True to publish)
+SF_TEMP_SHOW_SECRETS=true cci task run deploy_vel_partner_site --org $CCI_ALIAS
+```
+
+> Always deploy through the CCI task. A plain `sf project deploy` of `unpackaged/post_partner_site` would push unrendered placeholders.
+
+---
+
 ## Verification Checklist
 
 After all steps complete, verify in the org:
@@ -359,6 +375,7 @@ After all steps complete, verify in the org:
 - [ ] **DRO** — create a test order containing VEL-LSR-BDL; confirm fulfillment decomposition rules fire
 - [ ] **DRO flow** — Setup → Flows → `VEL_Maintenance_Contract_DRO_Task` is Active. A maintenance order must not leave `VEL Create Service Contract` in Fatally Failed with `SF_DRO_STEP_API_00127`
 - [ ] **Margin Analysis** — open a Quote record with Velantis products; the **Margin Analysis** tab shows per-line cost, margin $, margin % with colour-coded badges and a quote-total row
+- [ ] **Partner Community** (if Step 15 was run) — Setup → Digital Experiences → All Sites → `DFBYOPartner`; open the Builder preview: Home shows the Velantis hero and the Accounts / Opportunities / Quotes tiles open the matching lists
 
 ---
 
